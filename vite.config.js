@@ -11,11 +11,14 @@ const base = process.env.BASE_PATH ?? '/nv-website/'
 // would 404. Serving a copy of index.html as 404.html boots the app at that
 // URL with the address bar intact, and the router then renders the right page.
 function spaFallback() {
+  let outDir
   return {
     name: 'spa-404-fallback',
+    configResolved(config) {
+      outDir = resolve(config.root, config.build.outDir)
+    },
     closeBundle() {
-      const dir = resolve(__dirname, 'dist')
-      copyFileSync(resolve(dir, 'index.html'), resolve(dir, '404.html'))
+      copyFileSync(resolve(outDir, 'index.html'), resolve(outDir, '404.html'))
     },
   }
 }

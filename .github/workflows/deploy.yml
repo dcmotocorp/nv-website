@@ -1,8 +1,14 @@
 name: Deploy to GitHub Pages
 
+# Manual trigger only. GitHub Actions is currently blocked on this account for
+# billing reasons, so the site is published from the committed docs/ folder
+# instead (Settings -> Pages -> Deploy from a branch: main / docs).
+#
+# Once Actions billing is sorted, switch Pages back to "GitHub Actions" and
+# restore the push trigger below to deploy straight from source.
 on:
-  push:
-    branches: [main]
+  # push:
+  #   branches: [main]
   workflow_dispatch:
 
 # Allow the workflow to publish to Pages.
