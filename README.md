@@ -65,23 +65,45 @@ that one block.
 
 ## Deploying
 
-### GitHub Pages (configured)
+Live at **https://dcmotocorp.github.io/nv-website/**
 
-This repo deploys itself. [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)
-builds on every push to `main` and publishes to GitHub Pages.
+### How it is published today
 
-**One-time setup:** in the repo, go to **Settings → Pages → Build and deployment**
-and set **Source** to **GitHub Actions**. The next push deploys to
-https://dcmotocorp.github.io/nv-website/
+GitHub Actions is currently blocked on this account — workflow runs fail
+immediately with *"the job was not started because your account is locked due to
+a billing issue"* — so the site is published through branch-based GitHub Pages,
+which needs no Actions minutes.
 
-Two details make a React router work on Pages:
+Pages is set to **Deploy from a branch → `main` / `docs`**, and `docs/` holds the
+committed production build.
 
-- `vite.config.js` sets `base` to `/nv-website/`, so assets resolve under the
+**To publish a change:**
+
+```bash
+npm run build:pages   # writes the production build into docs/
+git add docs && git commit -m "Rebuild site" && git push
+```
+
+Pages picks it up within a minute or two.
+
+### Switching back to GitHub Actions
+
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) is ready and
+builds from source — it is just reduced to a manual trigger so it stops failing
+on every push. Once Actions billing is resolved:
+
+1. Settings → Pages → Source → **GitHub Actions**.
+2. Uncomment the `push:` trigger in the workflow.
+3. Delete `docs/` and the `build:pages` script — they are no longer needed.
+
+### What makes routing work on Pages
+
+- `vite.config.js` sets `base` to `/nv-website/` so assets resolve under the
   project-site subpath, and `BrowserRouter` picks that up via `basename`.
-- Pages has no SPA rewrite rule, so the build writes `dist/404.html` as a copy of
-  `index.html`. A deep link such as `/nv-website/about` is served that file with a
-  404 status, the app boots with the address bar intact, and the router renders the
-  right page.
+- Pages has no SPA rewrite rule, so the build emits `404.html` as a copy of
+  `index.html`. A deep link such as `/nv-website/about` is served that file (with
+  a 404 status), the app boots with the address bar intact, and the router
+  renders the right page.
 
 ### Other hosts
 
