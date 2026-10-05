@@ -5,3 +5,7 @@ dist
 
 # Pasted screenshots from the design session, not part of the site
 uploads/
+
+# Source briefs — contain stakeholder names and internal client details,
+# and this repository is public. Keep them local.
+project*.txt
