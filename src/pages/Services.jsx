@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import Icon from '../components/Icon';
-import { PageHero, SectionHead, CtaBand, CheckList, Pill } from '../components/ui';
-import { ServiceCard } from '../components/cards';
+import { SectionHead, CtaBand, CheckList, Pill } from '../components/ui';
 import { services } from '../data/services';
 import { process } from '../data/company';
+import './services.css';
 
 const engagementModels = [
   {
@@ -43,49 +43,78 @@ const engagementModels = [
   },
 ];
 
+function ServiceRow({ service, index }) {
+  return (
+    <Link to={`/services/${service.slug}`} className="svc-row">
+      <span className="icon-tile svc-row__icon">
+        <Icon name={service.icon} size={20} />
+      </span>
+
+      <span className="svc-row__head">
+        <span className="svc-row__num">{String(index + 1).padStart(2, '0')}</span>
+        <span className="svc-row__name">{service.name}</span>
+      </span>
+
+      <Icon name="arrowRight" size={16} strokeWidth={2} className="svc-row__arrow" />
+
+      <span className="svc-row__body">
+        <span className="svc-row__desc">{service.short}</span>
+        <ul className="svc-row__caps">
+          {service.capabilities.map((c) => (
+            <li key={c.title}>{c.title}</li>
+          ))}
+        </ul>
+      </span>
+    </Link>
+  );
+}
+
 export default function Services() {
   return (
     <>
-      <PageHero
-        eyebrow="Services"
-        title="Engineering for systems that are measured."
-        lede="Nine practices covering the trading floor, the watch floor, the delivery centre and everything that feeds them. Most engagements use two or three together, because that is how the problems arrive."
-        aside={
-          <aside className="card card--raised stack" style={{ gap: 16 }}>
-            <span className="eyebrow">Start here</span>
+      {/* ---------- compact intro, so the list starts high ------------ */}
+      <section className="svc-intro">
+        <div className="shell svc-intro__inner">
+          <div className="svc-intro__copy">
+            <Pill>Services</Pill>
+            <h1 className="h2">Everything we do, on one page.</h1>
             <p className="body">
-              Not sure which of these you need? Describe the symptom — a slow order path, a failed
-              audit, a model that never shipped — and we will tell you what it usually turns out to be.
+              Nine practices and the capabilities inside each. Most engagements use two or three
+              together, because that is how the problems arrive.
             </p>
-            <Link to="/contact" className="btn btn--primary btn--block">
+          </div>
+          <div className="row" style={{ gap: 12 }}>
+            <Link to="/contact" className="btn btn--primary">
               Describe your problem
               <Icon name="arrowRight" size={16} strokeWidth={2} />
             </Link>
-            <hr className="rule" />
-            <div className="stack" style={{ gap: 10 }}>
-              {services.map((s) => (
-                <Link
-                  key={s.slug}
-                  to={`/services/${s.slug}`}
-                  className="row"
-                  style={{ gap: 9, fontSize: 14, color: 'var(--ink-2)' }}
-                >
-                  <Icon name={s.icon} size={15} style={{ color: 'var(--clay)' }} />
-                  {s.name}
-                </Link>
-              ))}
-            </div>
-          </aside>
-        }
-      />
+            <Link to="/projects" className="btn btn--ghost">
+              See the work
+            </Link>
+          </div>
+        </div>
+      </section>
 
-      <section className="section">
+      {/* ---------- the directory ------------------------------------- */}
+      <section className="section--tight">
         <div className="shell">
-          <div className="grid grid--3">
-            {services.map((s) => (
-              <ServiceCard key={s.slug} service={s} />
+          <div
+            className="row"
+            style={{ justifyContent: 'space-between', gap: 16, marginBottom: 20 }}
+          >
+            <span className="eyebrow">All practices</span>
+            <span className="mono">{services.length} practices</span>
+          </div>
+          <div className="svc-index">
+            {services.map((s, i) => (
+              <ServiceRow key={s.slug} service={s} index={i} />
             ))}
           </div>
+          <p className="small" style={{ marginTop: 22 }}>
+            Not sure which one your problem belongs to? Describe the symptom — a slow order path, a
+            failed audit, a model that never shipped — and{' '}
+            <Link to="/contact">we will tell you what it usually turns out to be</Link>.
+          </p>
         </div>
       </section>
 
@@ -94,7 +123,7 @@ export default function Services() {
         <div className="shell">
           <SectionHead
             eyebrow="How we engage"
-            title="Four shapes of contract, chosen to fit the risk."
+            title="Five shapes of contract, chosen to fit the risk."
             lede="We do not quote fixed-price delivery for work nobody has scoped yet. The model follows how much is genuinely unknown."
           />
           <div className="grid grid--2">

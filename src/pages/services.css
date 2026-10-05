@@ -1,0 +1,123 @@
+/* Services directory — every practice visible at once, with its capabilities
+   listed underneath so the page reads like an index rather than a brochure. */
+
+.svc-intro {
+  border-bottom: 1px solid var(--line);
+  background:
+    radial-gradient(900px 340px at 10% -20%, rgba(201, 100, 66, 0.07), transparent 70%),
+    var(--cream);
+}
+.svc-intro__inner {
+  padding-top: 52px;
+  padding-bottom: 44px;
+  display: flex;
+  gap: 40px;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.svc-intro__copy { display: flex; flex-direction: column; gap: 14px; max-width: 46ch; }
+
+.svc-index {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+}
+
+.svc-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0 16px;
+  align-items: start;
+  padding: 20px 22px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  color: inherit;
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+}
+.svc-row:hover {
+  border-color: var(--clay-line);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Explicit placement — auto-placement puts the arrow in the wrong cell
+   because the icon and arrow both carry a definite row. */
+.svc-row__icon { grid-column: 1; grid-row: 1; }
+
+.svc-row__head {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 42px;
+}
+.svc-row__num {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-5);
+  letter-spacing: 0.04em;
+}
+.svc-row__name {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+
+.svc-row__arrow {
+  grid-column: 3;
+  grid-row: 1;
+  align-self: center;
+  color: var(--ink-5);
+  transition: transform 150ms ease, color 150ms ease;
+}
+.svc-row:hover .svc-row__arrow { color: var(--clay); transform: translateX(3px); }
+
+.svc-row__body {
+  grid-column: 2 / 4;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 2px;
+}
+.svc-row__desc { font-size: 14px; line-height: 1.55; color: var(--ink-3); }
+
+/* Capabilities as chips rather than a separated run of text — no dangling
+   separator when a line wraps, and each one reads as a discrete offering. */
+.svc-row__caps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.svc-row__caps li {
+  padding: 3px 9px;
+  border-radius: 7px;
+  background: var(--cream-sunk);
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--ink-3);
+  transition: background 150ms ease, color 150ms ease;
+}
+.svc-row:hover .svc-row__caps li {
+  background: var(--clay-tint);
+  color: var(--clay-darker);
+}
+
+@media (max-width: 560px) {
+  .svc-row { padding: 18px; gap: 0 13px; }
+  .svc-row__name { font-size: 17.5px; }
+  .svc-row__body { grid-column: 1 / 4; margin-top: 12px; }
+  .svc-intro__inner { padding-top: 44px; padding-bottom: 36px; }
+}
