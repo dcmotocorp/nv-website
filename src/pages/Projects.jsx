@@ -5,8 +5,8 @@ import { projects, projectCategories } from '../data/projects';
 
 const summary = [
   { value: '40+', label: 'Estates under management', note: 'Trading, SOC and platform' },
-  { value: '8', label: 'Case studies published', note: 'Of 60-plus engagements' },
-  { value: '6', label: 'Sectors served', note: 'All regulated or safety-critical' },
+  { value: '10', label: 'Case studies published', note: 'Of 60-plus engagements' },
+  { value: '7', label: 'Sectors served', note: 'All regulated or safety-critical' },
   { value: '92%', label: 'Clients still with us', note: 'Measured over three years' },
 ];
 

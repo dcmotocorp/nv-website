@@ -7,6 +7,7 @@ export const projectCategories = [
   { key: 'security', label: 'Cybersecurity' },
   { key: 'ai', label: 'AI & data' },
   { key: 'platform', label: 'Cloud & product' },
+  { key: 'enterprise', label: 'Enterprise & GCC' },
 ];
 
 export const projects = [
@@ -47,7 +48,7 @@ export const projects = [
       text: 'They refused to quote until they had measured our system for three weeks. That told us more about how they work than the proposal did.',
       author: 'Head of Technology, Vertex Broking',
     },
-    services: ['trading-technology', 'cloud-platform'],
+    services: ['trading-technology', 'cloud-platform', 'quality-engineering'],
   },
   {
     slug: 'sentinel-soc',
@@ -273,7 +274,7 @@ export const projects = [
       text: 'The first festive sale where nobody from the board called me at midnight.',
       author: 'Chief Digital Officer, Trinetra Retail',
     },
-    services: ['product-engineering', 'cloud-platform'],
+    services: ['product-engineering', 'cloud-platform', 'quality-engineering'],
   },
   {
     slug: 'gulf-petrochem-vision',
@@ -309,6 +310,80 @@ export const projects = [
     outcome:
       'Twenty-seven valve leaks were caught early in the first six months, three of them on lines where a failure would have forced a unit shutdown. PPE compliance moved from sampled to continuous, and the safety team now runs walkarounds against a ranked list instead of a schedule.',
     services: ['artificial-intelligence', 'cloud-platform'],
+  },
+  {
+    slug: 'meridian-engineering-centre',
+    category: 'enterprise',
+    categoryLabel: 'Enterprise & GCC',
+    client: 'Meridian Insurance Group',
+    sector: 'Insurance',
+    year: '2023—2026',
+    title: 'Meridian Engineering Centre',
+    subtitle: 'A 58-person captive engineering centre stood up in Mohali and transferred in 30 months',
+    teaser:
+      'Built, staffed and ran a UK insurer own engineering centre, then handed it over as their legal entity on the date agreed at the start.',
+    featured: false,
+    accent: '#7A5C8A',
+    metrics: [
+      { value: '10 wks', label: 'Signing to first productive squad' },
+      { value: '58', label: 'Engineers at transfer' },
+      { value: '9%', label: 'Annual attrition' },
+    ],
+    challenge:
+      'Meridian had tried offshoring twice through staffing vendors and unwound both. The teams never acquired domain knowledge because the people rotated, decisions still needed someone in London, and the cost saving evaporated into rework. They wanted a centre that behaved like part of the company rather than a supplier, and they wanted the option to own it outright.',
+    approach:
+      'We started with the operating model rather than the hiring plan, because the previous attempts failed on decision rights and not on headcount. Each squad was given end-to-end ownership of a domain, including its on-call, and the London team gave up the approval steps that had made the offshore teams passive. Hiring ran against Meridian own interview bar with their engineers on every panel, which slowed us down and is the main reason attrition stayed single-digit. The transfer terms, valuation and date were written into the original contract, so the endgame was never a negotiation conducted from a position of dependency.',
+    work: [
+      'Operating model and decision-rights design agreed before any hiring',
+      'Employer-of-record start, converted to a Meridian subsidiary in month 14',
+      'Six cross-functional squads hired against the client interview bar',
+      'Engineering standards, golden paths and on-call culture installed from day one',
+      'Segregated network, identity-aware access and UK data-residency controls for GDPR',
+      'Build-operate-transfer executed on the contracted date with leadership continuity',
+    ],
+    stack: ['Dedicated pods', 'Build-operate-transfer', 'Azure', '.NET', 'React', 'Terraform', 'Playwright'],
+    outcome:
+      'The centre reached 58 engineers across six squads and transferred to Meridian ownership in month 30, on the date and valuation set at signing. Attrition held at 9% against a sector norm near 20%, and four of the original squad leads are still running those teams under Meridian employment.',
+    quote: {
+      text: 'The third attempt worked because they argued with us about decision rights before they talked about rates.',
+      author: 'Group CTO, Meridian Insurance Group',
+    },
+    services: ['global-capability-centres', 'quality-engineering', 'product-engineering'],
+  },
+  {
+    slug: 'karnavati-service-platform',
+    category: 'enterprise',
+    categoryLabel: 'Enterprise & GCC',
+    client: 'Karnavati Bank',
+    sector: 'Scheduled commercial bank',
+    year: '2025—2026',
+    title: 'Karnavati Service Platform',
+    subtitle: 'ServiceNow and MuleSoft replacing forty internal request inboxes',
+    teaser:
+      'Consolidated a bank internal service estate onto one workflow platform, with an integration layer that made the CMDB reflect reality.',
+    featured: false,
+    accent: '#4F6A82',
+    metrics: [
+      { value: '40 → 1', label: 'Request channels consolidated' },
+      { value: '71%', label: 'Requests now self-service' },
+      { value: '3.2 days', label: 'Mean fulfilment, from 11' },
+    ],
+    challenge:
+      'Internal requests at Karnavati arrived through roughly forty shared mailboxes, a ticketing tool used by two departments, and a great deal of walking across the floor. Nothing had an SLA anyone could report on, the configuration database had been imported once in 2019 and never reconciled, and branch staff had learned to escalate by phoning whoever they knew. An operational-resilience review had flagged all of it.',
+    approach:
+      'We treated the integration layer and the CMDB as the actual project and the workflow configuration as the easy part, which inverted the vendor proposal they had been given. System APIs were built in MuleSoft over core banking, HR and identity so the platform read from systems of record rather than keeping its own copy. CMDB population was automated from discovery and reconciled continuously, because a configuration database maintained by hand is wrong within a quarter. We shipped one process end to end — new-joiner access provisioning — and let it run for six weeks before configuring anything else.',
+    work: [
+      'ServiceNow ITSM and ITOM with a service catalogue designed with branch staff, not for them',
+      'MuleSoft system and process APIs over core banking, HR and Active Directory',
+      'Automated CMDB discovery with continuous reconciliation and drift reporting',
+      'Twenty-two request workflows migrated from mailboxes, in order of volume',
+      'Access provisioning and deprovisioning automated against the HR joiner-mover-leaver feed',
+      'SLA reporting and an operational-resilience evidence pack for the regulator',
+    ],
+    stack: ['ServiceNow', 'MuleSoft', 'Active Directory', 'Azure', 'Terraform', 'Power BI'],
+    outcome:
+      'Forty request channels became one catalogue, 71% of requests are now self-service, and mean fulfilment fell from eleven days to 3.2. Deprovisioning is automatic on the leaver feed, which closed the orphaned-account finding that the resilience review had raised twice.',
+    services: ['enterprise-platforms', 'cloud-platform', 'cybersecurity'],
   },
 ];
 

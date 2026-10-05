@@ -153,8 +153,8 @@ export default function Home() {
         <div className="shell">
           <SectionHead
             eyebrow="What we do"
-            title="Six practices that keep ending up on the same projects."
-            lede="A trading platform needs a security programme. An AI model needs a data platform underneath it. We run these as one firm rather than six, because that is how the problems actually arrive."
+            title="Nine practices that keep ending up on the same projects."
+            lede="A trading platform needs a security programme. An AI model needs a data platform underneath it. We run these as one firm rather than nine, because that is how the problems actually arrive."
             action={
               <Link to="/services" className="btn btn--ghost btn--sm">
                 All services

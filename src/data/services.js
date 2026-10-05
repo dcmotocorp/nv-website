@@ -154,6 +154,14 @@ export const services = [
         body: 'Feature stores, reproducible training, model registry, shadow and canary rollout, and the drift, bias and cost dashboards that tell you when to retrain.',
       },
       {
+        title: 'AI agents & workflow automation',
+        body: 'Tool-using agents scoped to a named business process, with permission boundaries, a human approval step on anything consequential, and a transcript of every action taken.',
+      },
+      {
+        title: 'AI pods',
+        body: 'A standing cross-functional squad — ML engineers, a data engineer and an evaluation lead — embedded against your roadmap, for organisations with more AI work than one project.',
+      },
+      {
         title: 'AI governance',
         body: 'Model cards, data lineage, DPDP-aligned consent handling, human-in-the-loop design and the documentation an internal risk committee will ask for.',
       },
@@ -210,6 +218,10 @@ export const services = [
       {
         title: 'Semantic & BI layer',
         body: 'Metric definitions in one governed place, feeding Power BI, Looker, Metabase or Superset, so the number is the number wherever it is read.',
+      },
+      {
+        title: 'Data labelling & enrichment',
+        body: 'Annotation for training sets — text, document, image and audio — run by a trained in-house team with written guidelines, inter-annotator agreement measured, and a gold set to audit against. Plus entity resolution and third-party enrichment where the gap is coverage rather than labels.',
       },
       {
         title: 'Governance & privacy',
@@ -328,6 +340,10 @@ export const services = [
         body: 'Test pyramids that reflect real risk, contract tests across service boundaries, load testing before the campaign, and release gates that block on the things that matter.',
       },
       {
+        title: 'Digital commerce',
+        body: 'Storefronts, checkout and order management on composable or packaged platforms, with payment, tax and logistics integration and a performance budget enforced before the festive peak rather than after it.',
+      },
+      {
         title: 'Support & evolution',
         body: 'Shared on-call, SLA-backed support tiers, quarterly roadmap reviews and a dependency-upgrade cadence so the codebase does not rot.',
       },
@@ -347,6 +363,180 @@ export const services = [
       {
         q: 'Can you work alongside our in-house team?',
         a: 'Most of our engagements are mixed squads. Shared repository, shared standards, shared retro — we do not run a parallel team behind a contract boundary.',
+      },
+    ],
+  },
+  {
+    slug: 'quality-engineering',
+    icon: 'flask',
+    name: 'Quality engineering',
+    short: 'Test automation, performance and release gates that catch it before your customers do.',
+    summary:
+      'Test strategy and automation across web, mobile and API, performance and load engineering, accessibility audits, and release gates that make a green pipeline mean something.',
+    lede:
+      'A test suite nobody trusts gets skipped under deadline pressure, which is exactly when it was needed. We build suites people believe.',
+    outcomes: [
+      'Regression cycles cut from five days to under ninety minutes',
+      'Flake rate held below 1%, because a flaky suite is an ignored suite',
+      'WCAG 2.1 AA verified as a release gate rather than a later project',
+    ],
+    capabilities: [
+      {
+        title: 'Test strategy & architecture',
+        body: 'A test pyramid shaped by where your risk actually sits rather than by a coverage target. We write down what each layer is responsible for, so the same bug is not chased at three levels.',
+      },
+      {
+        title: 'AI-powered test automation',
+        body: 'Model-assisted test generation from requirements and production traces, self-healing selectors for brittle UI locators, and failure triage that clusters a run by probable cause instead of listing 200 reds.',
+      },
+      {
+        title: 'API & contract testing',
+        body: 'Consumer-driven contracts across service boundaries so an upstream change breaks in CI rather than in production, with schema and backwards-compatibility checks on every merge.',
+      },
+      {
+        title: 'Performance & load engineering',
+        body: 'Load models built from real traffic shapes, soak and spike tests before the campaign or the expiry session, and profiling that names the bottleneck rather than reporting that the system is slow.',
+      },
+      {
+        title: 'Accessibility & compliance testing',
+        body: 'Automated sweeps in CI plus manual screen-reader and keyboard passes, because the automated tools catch roughly a third of real WCAG failures and the rest need a person.',
+      },
+      {
+        title: 'Test data & environments',
+        body: 'Synthetic and masked test data so production records never reach staging, ephemeral environments per pull request, and seeded fixtures that make a failure reproducible.',
+      },
+    ],
+    stack: ['Playwright', 'Cypress', 'Appium', 'REST Assured', 'Pact', 'k6', 'JMeter', 'axe-core', 'Allure', 'GitHub Actions'],
+    engagement: [
+      { phase: 'Quality audit', detail: 'Two weeks on your current suite: what it covers, what it misses, how long it takes and how often it lies.' },
+      { phase: 'Stabilise', detail: 'Kill the flake first. A suite that cries wolf cannot be built on, so this comes before any new coverage.' },
+      { phase: 'Automate the risk', detail: 'Coverage added in order of what would hurt most if it broke, not in order of what is easiest to automate.' },
+      { phase: 'Gate & hand over', detail: 'Wire the suite into release gates, train your engineers to own it, and leave the triage playbook behind.' },
+    ],
+    faqs: [
+      {
+        q: 'Can you work with the test suite we already have?',
+        a: 'Usually yes, and we prefer it. Rewriting a suite throws away encoded knowledge about edge cases. We stabilise and restructure in place, and propose a rewrite only when the framework itself is the blocker.',
+      },
+      {
+        q: 'Does AI-generated test code actually hold up?',
+        a: 'For scaffolding, selector repair and triage clustering, genuinely yes. For deciding what is worth testing, no — that is judgement about risk, and we do not pretend otherwise.',
+      },
+    ],
+  },
+  {
+    slug: 'global-capability-centres',
+    icon: 'globe',
+    name: 'Global capability centres',
+    short: 'Your own engineering centre in India — staffed, run, and handed over when you want it.',
+    summary:
+      'Setting up and operating captive engineering centres: entity and compliance, hiring, delivery leadership and engineering standards, with a build-operate-transfer path when you want it to become yours.',
+    lede:
+      'A GCC fails for people reasons far more often than technical ones. We staff it, run it to our engineering standards, and transfer it when it can stand on its own.',
+    outcomes: [
+      'First squad productive inside 10 weeks of signing',
+      'Attrition under 12% against a sector norm closer to 20%',
+      'Clean build-operate-transfer with no single-person knowledge left behind',
+    ],
+    capabilities: [
+      {
+        title: 'Entity, compliance & infrastructure',
+        body: 'Company formation or an employer-of-record start, statutory registrations, payroll, GST and transfer-pricing groundwork, office space and the security controls your auditors will ask about.',
+      },
+      {
+        title: 'Hiring & employer brand',
+        body: 'Sourcing, structured technical interviews run to your bar, published salary bands, and the employer positioning that makes good engineers answer the call in a competitive market.',
+      },
+      {
+        title: 'Dedicated pods',
+        body: 'Cross-functional squads — engineers, QA, a designer, a delivery lead — working to your roadmap in your repositories, with the pod rather than the individual as the unit you contract for.',
+      },
+      {
+        title: 'Engineering standards & enablement',
+        body: 'The golden paths, review bar, on-call culture and documentation habits we run across our own practices, installed from day one rather than retrofitted in year two.',
+      },
+      {
+        title: 'Security & data residency',
+        body: 'Segregated networks, identity-aware access, device management and data-residency controls, so a centre in India satisfies your home regulator as well as ours.',
+      },
+      {
+        title: 'Build-operate-transfer',
+        body: 'An agreed trigger and valuation, a transition plan written at the start rather than negotiated at the end, and leadership continuity through the handover.',
+      },
+    ],
+    stack: ['Dedicated pods', 'Build-operate-transfer', 'Employer of record', 'Managed capacity', 'Co-sourced leadership', 'DPDP & GDPR controls'],
+    engagement: [
+      { phase: 'Operating model', detail: 'What the centre owns versus the home team, how decisions get made, and an honest cost model including the parts people forget.' },
+      { phase: 'Stand up', detail: 'Entity or employer of record, premises, security controls, and the first squad hired against your interview bar with your people in the loop.' },
+      { phase: 'Scale', detail: 'Squad by squad, each productive before the next is hired. Growing faster than you can onboard is the usual way these fail.' },
+      { phase: 'Operate or transfer', detail: 'We keep running it, or we execute the transfer on the terms agreed at the start. Both are normal endings.' },
+    ],
+    faqs: [
+      {
+        q: 'How is this different from hiring a contractor team?',
+        a: 'A contractor team is capacity you rent. A GCC is an asset you accumulate — the same people, learning your domain, on a path to becoming your own entity. If you only need capacity, say so and we will quote an embedded squad instead, which is cheaper.',
+      },
+      {
+        q: 'What is the minimum viable size?',
+        a: 'Around 12 to 15 people. Below that the compliance and leadership overhead per head is hard to justify, and we will tell you to use an embedded squad until you grow into it.',
+      },
+    ],
+  },
+  {
+    slug: 'enterprise-platforms',
+    icon: 'puzzle',
+    name: 'Enterprise platforms',
+    short: 'Microsoft, Salesforce, ServiceNow and MuleSoft — implemented so they fit the business.',
+    summary:
+      'Implementation, extension and integration across the Microsoft stack, Salesforce, ServiceNow and MuleSoft, with the integration layer and the data model treated as the real work.',
+    lede:
+      'Platform projects rarely fail at configuration. They fail at the integration seams and the data model underneath, which is where we spend our time.',
+    outcomes: [
+      'Integration built as versioned contracts rather than point-to-point spaghetti',
+      'One customer and product definition shared across platforms',
+      'Configuration preferred over custom code, and custom code reviewed like product code',
+    ],
+    capabilities: [
+      {
+        title: 'Microsoft business applications',
+        body: 'Dynamics 365 and the Power Platform — model-driven apps, Power Automate flows and governed low-code, with the line between citizen development and engineering drawn deliberately.',
+      },
+      {
+        title: 'Microsoft data & AI',
+        body: 'Fabric and Synapse lakehouses, Power BI semantic models and Azure OpenAI workloads, built on the same data contracts and evaluation discipline as the rest of our data and AI work.',
+      },
+      {
+        title: 'Microsoft infrastructure & app innovation',
+        body: 'Azure landing zones, identity and network design, AKS platforms and .NET modernisation — taken as a strangler path rather than a big-bang rebuild.',
+      },
+      {
+        title: 'Salesforce',
+        body: 'Sales, Service and Experience Cloud implementation, Apex and Lightning development held to ordinary code-review standards, and the data hygiene that keeps a CRM worth reading.',
+      },
+      {
+        title: 'ServiceNow',
+        body: 'ITSM, ITOM and custom workflow applications, a CMDB that reflects reality rather than a one-off import, and service catalogues people use instead of emailing IT.',
+      },
+      {
+        title: 'MuleSoft & integration',
+        body: 'API-led connectivity with reusable system and process APIs, versioning that does not break consumers, and idempotency and retry semantics designed in rather than discovered.',
+      },
+    ],
+    stack: ['Dynamics 365', 'Power Platform', 'Microsoft Fabric', 'Azure', '.NET', 'Salesforce', 'Apex', 'ServiceNow', 'MuleSoft', 'Azure DevOps'],
+    engagement: [
+      { phase: 'Fit assessment', detail: 'What the platform does out of the box, what genuinely needs extending, and what you are about to build that the licence already covers.' },
+      { phase: 'Data model & integration design', detail: 'Shared definitions and API contracts first, because retrofitting these is what makes platform programmes overrun.' },
+      { phase: 'Implement in slices', detail: 'One business process end to end at a time, in production, rather than a full configuration revealed at the end.' },
+      { phase: 'Adopt & support', detail: 'Training for admins and end users, a managed support tier, and a release cadence that keeps pace with vendor updates.' },
+    ],
+    faqs: [
+      {
+        q: 'Are you a certified partner on these platforms?',
+        a: 'We hold delivery certifications across the Microsoft stack and work alongside licensed partners where a formal partner tier is required for licensing or support. We will be explicit about which applies to your engagement before you sign anything.',
+      },
+      {
+        q: 'Should we customise the platform or change our process?',
+        a: 'Change the process, in most cases. Every customisation is a cost you pay on every upgrade for the life of the platform. We push back on custom code and document the ones we agree are genuinely justified.',
       },
     ],
   },

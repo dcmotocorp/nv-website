@@ -28,6 +28,13 @@ const engagementModels = [
     best: 'Best when the system is live and the risk is operational.',
   },
   {
+    icon: 'globe',
+    title: 'Dedicated pod or GCC',
+    price: 'Annual · 12 people and up',
+    body: 'A standing squad, or a full captive centre with entity, hiring and compliance handled — run to our engineering standards, with a build-operate-transfer path if you want it to become yours.',
+    best: 'Best when the work is permanent and you want to own the capability.',
+  },
+  {
     icon: 'file',
     title: 'Assessment & audit',
     price: 'Fixed price · 1–4 weeks',
@@ -42,7 +49,7 @@ export default function Services() {
       <PageHero
         eyebrow="Services"
         title="Engineering for systems that are measured."
-        lede="Six practices covering the trading floor, the watch floor and everything that feeds them. Most engagements use two or three together, because that is how the problems arrive."
+        lede="Nine practices covering the trading floor, the watch floor, the delivery centre and everything that feeds them. Most engagements use two or three together, because that is how the problems arrive."
         aside={
           <aside className="card card--raised stack" style={{ gap: 16 }}>
             <span className="eyebrow">Start here</span>

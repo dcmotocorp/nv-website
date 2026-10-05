@@ -72,6 +72,9 @@ export const footerColumns = [
       { label: 'Data engineering', to: '/services/data-engineering' },
       { label: 'Cloud & platform', to: '/services/cloud-platform' },
       { label: 'Product engineering', to: '/services/product-engineering' },
+      { label: 'Quality engineering', to: '/services/quality-engineering' },
+      { label: 'Global capability centres', to: '/services/global-capability-centres' },
+      { label: 'Enterprise platforms', to: '/services/enterprise-platforms' },
     ],
   },
   {
@@ -112,4 +115,5 @@ export const clients = [
   'Medivance Labs',
   'Gulf Petrochem Systems',
   'Trinetra Retail',
+  'Meridian Insurance Group',
 ];
