@@ -107,6 +107,7 @@ export const stats = [
 ];
 
 export const clients = [
+  'Shoonya by Finvasia',
   'Aurelia Capital',
   'Karnavati Bank',
   'Vertex Broking',

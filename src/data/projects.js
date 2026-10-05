@@ -11,6 +11,155 @@ export const projectCategories = [
 ];
 
 export const projects = [
+  // ---------------------------------------------------------------------
+  // Real engagements, listed first. Written from the supplied project briefs:
+  // the delivered scope is factual, and no performance or business-outcome
+  // figures are claimed because the briefs do not contain any.
+  // ---------------------------------------------------------------------
+  {
+    slug: 'prism-client-portal-ticketing',
+    category: 'trading',
+    categoryLabel: 'Trading',
+    client: 'Shoonya by Finvasia',
+    sector: 'Retail brokerage',
+    year: '2025',
+    title: 'PRISM Client Portal Ticketing',
+    subtitle: 'Full-stack ticketing for reKYC, DDPI and account operations across PRISM 2.0 and 2.1',
+    teaser:
+      'Automated the client-service requests a broker handles most — reKYC, DDPI activation, reactivation and segment enablement — end to end.',
+    featured: true,
+    accent: '#C96442',
+    metrics: [
+      { value: '6', label: 'Automated reKYC states' },
+      { value: '5', label: 'Service flows delivered' },
+      { value: '4', label: 'Integrations wired' },
+    ],
+    challenge:
+      'Client-service requests at a retail broker are regulatory as much as operational. A reKYC modification has to be validated against the KRA, a DDPI authorisation needs payment and a signature before it can be acted on, and a dormant account cannot be reactivated without the right checks first. Run through manual queues, the status is opaque to the client and the audit trail has to be assembled after the fact.',
+    approach:
+      'We built the module full-stack across PRISM 2.0 and 2.1 so ticket state is driven by the systems of record rather than by an operator. The CVL KRA webhook moves a reKYC ticket through its states directly, so submitted, under process, validated, auto-approved, auto-declined and user-cancelled all resolve without anyone re-keying an outcome from an email. Payment for DDPI activation was integrated with Razorpay and taken through sandbox and then production, and the e-sign and verification vendors were wired into the flows that legally require them.',
+    work: [
+      'reKYC ticketing with CVL KRA webhook integration driving status in real time',
+      'Six automated reKYC states — submitted, under process, validated, auto-approved, auto-declined, user-cancelled',
+      'DDPI activation flow with Razorpay payment, taken through sandbox and production rollout',
+      'Trading account reactivation for dormant accounts',
+      'Open Demat flow for existing users, including DP ID generation',
+      'Segment activation for NSE Commodity and Mutual Funds, gated on KRA validation',
+      'Secure PDF upload for verification documents, with e-sign through Digio and Hyperverge',
+      'Merge requests and version control managed on the client internal Git environment',
+    ],
+    stack: ['Full-stack', 'REST APIs', 'Webhooks', 'CVL KRA', 'Razorpay', 'Digio', 'Hyperverge', 'Git'],
+    outcome:
+      'The module shipped across both PRISM 2.0 and 2.1. reKYC tickets resolve from the KRA response rather than from an operator reading a mailbox, DDPI activation collects payment before the authorisation is raised, and the account operations that previously needed a support conversation are self-service with their documents attached to the ticket.',
+    services: ['product-engineering', 'trading-technology', 'quality-engineering'],
+  },
+  {
+    slug: 'health-insurance-mobile-app',
+    category: 'platform',
+    categoryLabel: 'Cloud & product',
+    client: 'Undisclosed insurer',
+    sector: 'Health insurance',
+    year: '2025',
+    title: 'Health Insurance Mobile App',
+    subtitle: 'An IRDAI-aligned purchase journey for exploring, comparing and buying health cover',
+    teaser:
+      'A digital-first insurance app where a half-finished application survives the app being closed.',
+    featured: true,
+    accent: '#5F7A6B',
+    metrics: [
+      { value: '2', label: 'Issuance journeys' },
+      { value: '5', label: 'Journey stages built' },
+      { value: '2', label: 'E-KYC modes' },
+    ],
+    challenge:
+      'Buying health cover on a phone is a long form interrupted by life. A user picks members, adjusts the sum assured, compares plans across providers, enters proposer and nominee details, completes KYC and pays — and any one of those steps can be cut short by a call, a dead battery or a session timeout. Losing the partly filled application at that point loses the sale.',
+    approach:
+      'The journey was built to survive interruption. State auto-saves locally at each step, so a user returning after the app closes resumes where they stopped instead of starting again. Both straight-through and non-straight-through issuance paths are handled, because a declared pre-existing condition changes what happens after payment. Payment operations are idempotent so a retry on a weak connection cannot charge twice, and the policy dashboard renders from the issued state rather than assuming success. Sensitive fields are masked in the interface, the client was built against the AES-256 backend encryption standard, and the whole thing implemented to the supplied Figma design system.',
+    work: [
+      'Member selection for adults and children, including pre-existing condition declaration',
+      'Sum assured customisation and cross-provider plan comparison',
+      'Proposer and nominee capture with E-KYC — Aadhaar and PAN, digital verification and manual upload',
+      'Third-party payment gateway integration with idempotent operations to prevent duplicate charges',
+      'Policy dashboard rendering active, expired and rejected policies',
+      'Local auto-save so a journey resumes after app closure or session timeout',
+      'UI masking for PAN and Aadhaar, built against AES-256 backend encryption',
+      'Implementation to the supplied Figma design system',
+    ],
+    stack: ['Mobile', 'E-KYC', 'Payment gateway', 'Offline state persistence', 'Figma design system', 'AES-256'],
+    outcome:
+      'The app covers the full path from plan exploration to issued policy, with both STP and NSTP outcomes handled and the dashboard reflecting active, expired and rejected states. The local auto-save means an interrupted application is resumed rather than abandoned, and PAN and Aadhaar stay masked throughout the interface.',
+    services: ['product-engineering', 'cybersecurity'],
+  },
+  {
+    slug: 'tradingview-ikf-module',
+    category: 'trading',
+    categoryLabel: 'Trading',
+    client: 'Shoonya by Finvasia',
+    sector: 'Retail brokerage',
+    year: '2025',
+    title: 'TradingView & IKF Mobile Module',
+    subtitle: 'A plug-and-play native charting module embedded into the PRISM 2.0 mobile apps',
+    teaser:
+      'Advanced charting and the proprietary IKF module dropped into an existing iOS and Android app without entangling the two.',
+    featured: true,
+    accent: '#4F6A82',
+    metrics: [
+      { value: '2', label: 'Native platforms' },
+      { value: '2', label: 'Libraries embedded' },
+      { value: '1', label: 'Drop-in boundary' },
+    ],
+    challenge:
+      'Charting is the screen traders live on, so it has to be native, fast and current. Bolting a third-party charting library and a proprietary module straight into an existing app usually leaves the three inseparable afterwards. The client needed both embedded into PRISM 2.0 on either platform, built to specific toolchain versions, and structured so the module could be revised without reopening the host app.',
+    approach:
+      'We built it as a module with an explicit boundary rather than as a feature inside the app. Dynamic market data and user state pass through defined injection points, which is what keeps the module separable from the core application. Live prices arrive over a token-authenticated WebSocket connection and stream straight into the TradingView chart UI. Both platforms were built strictly to the versions the client specified — SwiftUI on Swift 5/6 under Xcode 16.2 for iOS, and Jetpack Compose with Dagger Hilt targeting SDK 34 for Android.',
+    work: [
+      'Native iOS module in SwiftUI (Swift 5/6, Xcode 16.2)',
+      'Native Android module in Jetpack Compose (Android Studio Ladybug, targetSdk 34, Dagger Hilt)',
+      'TradingView advanced charting libraries embedded on both platforms',
+      'Proprietary IKF module integrated alongside the charting stack',
+      'Token-authenticated WebSocket connections streaming live market data into the chart UI',
+      'Defined injection points for dynamic market data and user state, keeping the module separate from the core app',
+    ],
+    stack: ['SwiftUI', 'Swift 5/6', 'Jetpack Compose', 'Dagger Hilt', 'TradingView', 'WebSocket', 'Xcode 16.2'],
+    outcome:
+      'PRISM 2.0 carries TradingView charting and the IKF module natively on both platforms, fed by an authenticated live data connection. Because the module keeps its own boundary and takes everything through injection points, it can be revised without unpicking the host application.',
+    services: ['trading-technology', 'product-engineering'],
+  },
+  {
+    slug: 'sensai-sentiment-fundamentals',
+    category: 'ai',
+    categoryLabel: 'AI & data',
+    client: 'Shoonya by Finvasia',
+    sector: 'Retail brokerage',
+    year: '2025',
+    title: 'SensAI Sentiment & Fundamentals',
+    subtitle: 'AI sentiment, technical indicators and company financials on the stock details page',
+    teaser:
+      'Put fundamentals, multi-year ratios and live sentiment in front of retail investors where they actually decide — the stock page.',
+    featured: false,
+    accent: '#7A5C8A',
+    metrics: [
+      { value: '4', label: 'Fundamental domains' },
+      { value: '2', label: 'Live feeds integrated' },
+      { value: '2', label: 'User contexts synced' },
+    ],
+    challenge:
+      'A retail investor on a broking app gets a price and a chart, then has to leave to find out whether the company behind the ticker is any good. The research exists — technical indicators, financial statements, ratio history, sentiment — but it lives in other products, which is where the user goes instead.',
+    approach:
+      'We integrated the SensAI module into the stock details page so research sits beside the trade rather than in a separate destination. Fundamentals render dynamically from the APIs — technical indicators, consolidated and standalone P&L, and balance sheets — and the multi-year CMIE ratio arrays were mapped onto the UI so a user reads a trend rather than a single year. Sentiment scores and the linked news feed are pulled live, and the view synchronises with the user watchlists and holdings so comparison starts from what they already follow.',
+    work: [
+      'Company portfolio and fundamentals APIs rendered dynamically on the stock details page',
+      'Technical indicators, consolidated and standalone P&L, and balance sheet mapping',
+      'Multi-year CMIE financial ratio arrays (FY 2024, FY 2025) mapped to the frontend',
+      'Real-time sentiment scores from the SensAI analysis endpoints',
+      'Linked news feed integrated alongside the sentiment score',
+      'Synchronisation with active watchlists and portfolio holdings for cross-referencing',
+    ],
+    stack: ['Mobile', 'REST APIs', 'CMIE data', 'Sentiment analysis', 'Watchlist sync'],
+    outcome:
+      'Fundamentals, multi-year ratios, technical indicators and AI sentiment now render on the stock details page alongside price, and the data follows the user watchlist and holdings — so comparing two stocks no longer means leaving the app.',
+    services: ['artificial-intelligence', 'product-engineering', 'data-engineering'],
+  },
   {
     slug: 'velocity-oms',
     category: 'trading',
@@ -22,7 +171,7 @@ export const projects = [
     subtitle: 'A colocated order management system for a 400,000-client retail broker',
     teaser:
       'Replaced a vendor OMS that fell over on expiry day with an in-house stack running at 31 ms median round-trip.',
-    featured: true,
+    featured: false,
     accent: '#C96442',
     metrics: [
       { value: '31 ms', label: 'Median order round-trip' },
@@ -61,7 +210,7 @@ export const projects = [
     subtitle: 'A 24×7 detection and response programme across 11,000 endpoints',
     teaser:
       'Stood up detection-as-code for a bank operating under the RBI cyber-security framework, cutting detection time from hours to minutes.',
-    featured: true,
+    featured: false,
     accent: '#8A6A4F',
     metrics: [
       { value: '6 min', label: 'Mean time to detect' },
@@ -100,7 +249,7 @@ export const projects = [
     subtitle: 'Document understanding and fraud triage for health-claim processing',
     teaser:
       'A layout-aware extraction and triage pipeline that handles 40,000 pages a day and sends only the genuinely doubtful claims to a human.',
-    featured: true,
+    featured: false,
     accent: '#5F7A6B',
     metrics: [
       { value: '97.3%', label: 'Field-level extraction accuracy' },

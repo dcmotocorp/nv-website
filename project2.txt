@@ -1,0 +1,72 @@
+Project 1: Health Insurance Mobile Application (STP & NSTP Flows)
+Key Stakeholders: Manish Dhoundiyal, Sonia Jatain, Navdeep Sharma, Jitendar Kumar (Jitu)
+Scope: Frontend Mobile App Development (Digital-First Platform)
+
+Project Overview:
+
+Developed a robust, IRDAI-compliant health insurance frontend module enabling users to seamlessly explore, customize, compare, and purchase insurance policies. The architecture emphasized offline resilience, secure data handling, and strict adherence to provided Figma design systems.
+
+Key Features Delivered:
+
+End-to-End User Journey: Built screens for Member Selection (Adults/Children, pre-existing conditions), Sum Assured customization, and cross-provider plan comparisons.
+
+Proposer & KYC Integration: Developed secure forms for capturing Proposer/Nominee details and integrated E-KYC flows (Aadhaar/PAN manual upload and digital verification).
+
+Payment & Policy Issuance: Integrated third-party payment gateways with idempotent operations to prevent duplicate charges, followed by dynamic Policy Dashboard rendering for active, expired, or rejected policies.
+
+Offline Resilience & State Persistence: Engineered local auto-saving mechanisms so users can resume journeys seamlessly after app closure or session timeouts without losing partially filled data.
+
+Security & Compliance: Implemented UI data masking for sensitive fields (PAN/Aadhaar) and ensured compatibility with AES-256 backend encryption standards.
+
+Project 2: TradingView Charting & IKF Module Integration (Prism 2.0)
+Key Stakeholders: Sumit Roy, Jatin Vashisht, Tushar Verma, Navdeep Sharma
+
+Scope: Plug-and-Play Mobile Module (iOS & Android)
+
+Project Overview:
+
+Engineered a native, plug-and-play module to embed TradingView’s advanced charting libraries and the proprietary IKF module directly into Shoonya's Prism 2.0 mobile ecosystem.
+
+Key Features Delivered:
+
+Native Mobile Architecture: Developed strictly according to the client's version requirements, utilizing SwiftUI (Swift 5/6, Xcode 16.2) for iOS and Jetpack Compose (Android Studio Ladybug, targetSdk 34, Dagger Hilt) for Android.
+
+Live Market Data Integration: Configured secure WebSocket connections using token-based authentication to stream live market data directly into the TradingView chart UI.
+
+Dynamic Data Injection: Created clear injection points for passing dynamic market data and user states into the module while maintaining modular separation from the core app.
+
+Project 3: SensAI (Sentiment Analysis) & Fundamentals Module
+Key Stakeholders: Sukriti Vaid, Sumit Roy, Krishan Kumar Varshney, Jatin Vashisht
+
+Scope: API Integration & UI Development for Mobile App
+
+Project Overview:
+
+Integrated the "SensAI" sentiment analysis and fundamental research module into the Shoonya Mobile App, providing retail investors with deep financial insights, technical indicators, and AI-driven market sentiment directly on the stock details page.
+
+Key Features Delivered:
+
+Company Portfolio & Fundamentals Mapping: Integrated APIs to dynamically render Technical Indicators, Consolidated & Standalone P&L data, and Balance Sheets.
+
+Multi-Year Financial Ratios: Mapped complex, multi-year arrays (e.g., FY_2024, FY_2025) to display CMIE financial ratio data on the frontend UI.
+
+Advanced Sentiment Tracking: Connected /api/sentiments/analyze endpoints to display real-time sentiment scores and linked news feeds (/api/get/news-feed).
+
+Watchlist & Holdings Sync: Synchronized the SensAI data with the user's active watchlists and portfolio holdings for seamless cross-referencing and stock comparison.
+
+Project 4: PRISM 2.0 / 2.1 Client Portal Ticketing System
+Key Stakeholders: Deepak Dhyani, Ravi Beniwal, Navdeep Sharma
+
+Scope: Full-Stack Development (Frontend & Backend)
+
+Project Overview:
+
+Developed a secure, automated client service ticketing module to handle complex user account operations and regulatory compliance requests.
+
+Key Features Delivered:
+
+Automated reKYC System: Integrated CVL KRA Webhooks to automate ticket statuses (Modification Request Submitted, Validated, Auto-Approved, Auto-Declined).
+
+DDPI Activation: Built the demat authorization flow seamlessly integrated with Razorpay for upfront ticket payment processing.
+
+Account Operations: Developed flows for Trading Account Reactivation, Open DEMAT, and Segment Activation (NSE Com, Mutual Funds), featuring secure PDF uploads and e-sign integrations (Digio, Hyperverge).

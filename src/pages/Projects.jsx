@@ -5,7 +5,7 @@ import { projects, projectCategories } from '../data/projects';
 
 const summary = [
   { value: '40+', label: 'Estates under management', note: 'Trading, SOC and platform' },
-  { value: '10', label: 'Case studies published', note: 'Of 60-plus engagements' },
+  { value: '14', label: 'Case studies published', note: 'Of 60-plus engagements' },
   { value: '7', label: 'Sectors served', note: 'All regulated or safety-critical' },
   { value: '92%', label: 'Clients still with us', note: 'Measured over three years' },
 ];
@@ -23,7 +23,7 @@ export default function Projects() {
       <PageHero
         eyebrow="Case studies"
         title="Work that is running in production right now."
-        lede="Eight engagements described in enough detail to be useful — the constraint we hit, the approach we took, and the numbers we report to the client. Names are used with permission."
+        lede="Fourteen engagements described in enough detail to be useful — the constraint we hit, the approach we took and what we delivered. Client names appear only where we have permission to use them."
       />
 
       <StatStrip items={summary} />
