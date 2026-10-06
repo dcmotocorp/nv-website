@@ -42,12 +42,8 @@ export default function ServiceDetail() {
           />
           <div className="split" style={{ marginTop: 40 }}>
             <div className="stack" style={{ gap: 24 }}>
-              <div className="row" style={{ gap: 14 }}>
-                <span className="icon-tile icon-tile--lg">
-                  <Icon name={service.icon} size={24} />
-                </span>
-                <Pill>Service</Pill>
-              </div>
+              {/* No icon or "Service" badge here — the breadcrumb above already
+                  says Home / Services / <name>. */}
               <h1 className="display" style={{ fontSize: 'clamp(34px, 4.6vw, 52px)' }}>
                 {service.name}
               </h1>
