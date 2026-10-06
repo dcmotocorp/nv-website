@@ -191,7 +191,12 @@ input::placeholder, textarea::placeholder { color: var(--ink-5); }
   transition: box-shadow 160ms ease, border-color 160ms ease, transform 160ms ease;
 }
 .card--raised { box-shadow: var(--shadow-md); }
-.card--link { color: inherit; display: block; }
+/* No `display` here on purpose. A card link also carries .stack or .split,
+   which set the display; declaring `block` here overrode them, which killed
+   the column flex and stopped the footer being pushed to the bottom. */
+.card--link { color: inherit; }
+/* An anchor is inline by default, so cover the case where neither is present. */
+a.card:not(.stack):not(.split) { display: block; }
 .card--link:hover {
   border-color: var(--clay-line);
   box-shadow: var(--shadow-md);

@@ -78,7 +78,7 @@ export default function Home() {
               >
                 <span className="eyebrow">Where we are strongest</span>
                 <span style={{ fontFamily: 'var(--serif)', fontSize: 19, fontWeight: 500 }}>
-                  Three practices, one engineering standard
+                  3 practices, one engineering standard
                 </span>
               </div>
               {services.slice(0, 3).map((s, i) => (
@@ -158,8 +158,8 @@ export default function Home() {
         <div className="shell">
           <SectionHead
             eyebrow="What we do"
-            title="Nine practices that keep ending up on the same projects."
-            lede="A trading platform needs a security programme. An AI model needs a data platform underneath it. We run these as one firm rather than nine, because that is how the problems actually arrive."
+            title="9 practices that keep ending up on the same projects."
+            lede="A trading platform needs a security programme. An AI model needs a data platform underneath it. We run these as one firm rather than 9, because that is how the problems actually arrive."
             action={
               <Link to="/services" className="btn btn--ghost btn--sm">
                 All services

@@ -38,7 +38,7 @@ export default function Industries() {
         imageAlt=""
         eyebrow="Industries"
         title="We work best where mistakes are named in a statute."
-        lede="Six sectors where downtime is measured, data is regulated and somebody has to sign the audit. The constraints are what make the engineering interesting."
+        lede="6 sectors where downtime is measured, data is regulated and somebody has to sign the audit. The constraints are what make the engineering interesting."
         aside={
           <aside className="card card--raised stack" style={{ gap: 16 }}>
             <span className="eyebrow">Sector coverage</span>

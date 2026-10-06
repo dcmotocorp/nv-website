@@ -84,7 +84,7 @@ export default function Services() {
             <Pill>Services</Pill>
             <h1 className="h2">Everything we do, on one page.</h1>
             <p className="body">
-              Nine practices and the capabilities inside each. Most engagements use two or three
+              9 practices and the capabilities inside each. Most engagements use two or three
               together, because that is how the problems arrive.
             </p>
           </div>
@@ -128,7 +128,7 @@ export default function Services() {
         <div className="shell">
           <SectionHead
             eyebrow="How we engage"
-            title="Five shapes of contract, chosen to fit the risk."
+            title="5 shapes of contract, chosen to fit the risk."
             lede="We do not quote fixed-price delivery for work nobody has scoped yet. The model follows how much is genuinely unknown."
           />
           <div className="grid grid--2">

@@ -97,7 +97,7 @@ export default function Careers() {
         <div className="shell">
           <SectionHead
             eyebrow="Open positions"
-            title="Six roles open right now."
+            title="6 roles open right now."
             lede="Every one of these is a genuine vacancy with a start date. We do not post roles to collect résumés."
           />
           <div className="stack" style={{ gap: 16 }}>
@@ -167,7 +167,7 @@ export default function Careers() {
         <div className="shell">
           <SectionHead
             eyebrow="Hiring process"
-            title="Four steps, two weeks, no surprises."
+            title="4 steps, 2 weeks, no surprises."
             lede="You will know where you stand after every stage. If we decide against, you get a reason rather than silence."
           />
           <div className="grid grid--4">

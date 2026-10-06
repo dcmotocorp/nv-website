@@ -234,7 +234,7 @@ export default function Contact() {
         <div className="shell">
           <div className="stack" style={{ gap: 18, marginBottom: 40 }}>
             <Pill>Offices</Pill>
-            <h2 className="h2">Three places you can turn up.</h2>
+            <h2 className="h2">3 places you can turn up.</h2>
           </div>
           <div className="grid grid--3">
             {site.offices.map((o) => (

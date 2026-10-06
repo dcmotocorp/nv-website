@@ -90,9 +90,19 @@ export function ProjectCard({ project, size = 'default' }) {
         <p className="small">{project.teaser}</p>
       </div>
 
-      <div className="row" style={{ gap: '10px 24px', marginTop: 'auto', paddingTop: 4 }}>
+      {/* Fixed columns and a reserved label height, so every card's footer is
+          the same shape and the figures line up across a row. */}
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: `repeat(${large ? 3 : 2}, minmax(0, 1fr))`,
+          gap: '10px 18px',
+          marginTop: 'auto',
+          paddingTop: 4,
+        }}
+      >
         {project.metrics.slice(0, large ? 3 : 2).map((m) => (
-          <span key={m.label} className="stack" style={{ gap: 1 }}>
+          <span key={m.label} className="stack" style={{ gap: 2 }}>
             <AnimatedNumber
               value={m.value}
               style={{
@@ -103,7 +113,16 @@ export function ProjectCard({ project, size = 'default' }) {
                 color: 'var(--ink)',
               }}
             />
-            <span style={{ fontSize: 11.5, color: 'var(--ink-4)' }}>{m.label}</span>
+            <span
+              style={{
+                fontSize: 11.5,
+                lineHeight: 1.35,
+                color: 'var(--ink-4)',
+                minHeight: '2.7em',
+              }}
+            >
+              {m.label}
+            </span>
           </span>
         ))}
       </div>

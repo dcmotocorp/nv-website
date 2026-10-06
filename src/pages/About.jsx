@@ -107,7 +107,7 @@ export default function About() {
         <div className="shell">
           <SectionHead
             eyebrow="How we think"
-            title="Four principles we are willing to be judged on."
+            title="4 principles we are willing to be judged on."
             lede="Every firm publishes values. These are the four that have actually changed a decision we made."
           />
           <div className="grid grid--2">
@@ -127,7 +127,7 @@ export default function About() {
       {/* ---------- timeline ----------------------------------------- */}
       <section className="section">
         <div className="shell">
-          <SectionHead eyebrow="Timeline" title="Nine years, mostly by accident." />
+          <SectionHead eyebrow="Timeline" title="9 years, mostly by accident." />
           <ol className="stack" style={{ gap: 0, margin: 0, padding: 0, listStyle: 'none' }}>
             {timeline.map((t, i) => (
               <li
@@ -195,7 +195,7 @@ export default function About() {
         <div className="shell">
           <SectionHead
             eyebrow="Where we are"
-            title="Three offices, each there for a reason."
+            title="3 offices, each there for a reason."
             lede="Mumbai exists because latency work over a VPN is guesswork. Dubai exists because plant-floor engagements need somebody on site the same week."
           />
           <div className="grid grid--3">

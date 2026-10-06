@@ -27,7 +27,7 @@ export default function Projects() {
         imageAlt=""
         eyebrow="Case studies"
         title="Work that is running in production right now."
-        lede="Fourteen engagements described in enough detail to be useful — the constraint we hit, the approach we took and what we delivered. Client names appear only where we have permission to use them."
+        lede="14 engagements described in enough detail to be useful — the constraint we hit, the approach we took and what we delivered. Client names appear only where we have permission to use them."
       />
 
       <StatStrip items={summary} />
