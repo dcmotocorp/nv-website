@@ -12,6 +12,7 @@ import {
 } from '../components/ui';
 import { site, stats } from '../data/site';
 import { values, timeline, leadership, testimonials } from '../data/company';
+import Timeline from '../components/Timeline';
 
 const asset = (p) => `${import.meta.env.BASE_URL}${p}`;
 
@@ -147,38 +148,12 @@ export default function About() {
       {/* ---------- timeline ----------------------------------------- */}
       <section className="section">
         <div className="shell">
-          <SectionHead eyebrow="Timeline" title="9 years, mostly by accident." />
-          <ol className="stack" style={{ gap: 0, margin: 0, padding: 0, listStyle: 'none' }}>
-            {timeline.map((t, i) => (
-              <li
-                key={t.year}
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: '92px 1fr',
-                  gap: 28,
-                  padding: '26px 0',
-                  borderTop: '1px solid var(--line)',
-                  borderBottom: i === timeline.length - 1 ? '1px solid var(--line)' : 'none',
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'var(--serif)',
-                    fontSize: 24,
-                    fontWeight: 500,
-                    color: 'var(--clay)',
-                    lineHeight: 1.2,
-                  }}
-                >
-                  {t.year}
-                </span>
-                <span className="stack" style={{ gap: 6 }}>
-                  <span style={{ fontSize: 17, fontWeight: 600 }}>{t.title}</span>
-                  <span className="body">{t.body}</span>
-                </span>
-              </li>
-            ))}
-          </ol>
+          <SectionHead
+            eyebrow="Timeline"
+            title="9 years, mostly by accident."
+            lede="Pick a year, or let it run."
+          />
+          <Timeline items={timeline} />
         </div>
       </section>
 
