@@ -457,3 +457,6 @@ a.card:not(.stack):not(.split) { display: block; }
   border-color: var(--ink-5);
   color: var(--ink);
 }
+
+/* Two-up grid: four items land as 2x2 rather than 3 + an orphan. */
+.grid--2up { grid-template-columns: repeat(auto-fit, minmax(min(100%, 430px), 1fr)); }

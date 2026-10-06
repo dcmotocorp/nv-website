@@ -5,21 +5,25 @@ export const values = [
   {
     icon: 'ruler',
     title: 'Measure before you quote',
+    image: 'img/values/measure.jpg',
     body: 'We instrument the existing system before proposing a new one. Half our engagements change shape after that first fortnight, and the client is better off for it.',
   },
   {
     icon: 'shield',
     title: 'Security is not a phase',
+    image: 'img/values/security.jpg',
     body: 'Threat modelling sits in design review and dependency gates sit in CI. Nobody on our teams gets to treat security as somebody else problem at the end.',
   },
   {
     icon: 'handover',
     title: 'Built to be handed over',
+    image: 'img/values/handover.jpg',
     body: 'Documentation, runbooks and pairing are deliverables. If your team cannot run it without us, we have not finished, whatever the contract says.',
   },
   {
     icon: 'speak',
     title: 'Say the inconvenient thing',
+    image: 'img/values/speak.jpg',
     body: 'We have told clients their project should not proceed, their vendor was right and our own estimate was wrong. It costs us work occasionally and earns us the next three engagements.',
   },
 ];
@@ -116,36 +120,42 @@ export const industries = [
   {
     icon: 'chart',
     name: 'Capital markets',
+    image: 'img/industries/capital-markets.jpg',
     body: 'Brokers, systematic funds and market-infrastructure firms. Order management, execution, surveillance and the SEBI system-audit evidence that goes with them.',
     points: ['Exchange certification on NSE, BSE, MCX and NSE IFSC', 'SEBI CSCRF and system-audit readiness', 'Colocation and latency engineering'],
   },
   {
     icon: 'bank',
     name: 'Banking & lending',
+    image: 'img/industries/banking-lending.jpg',
     body: 'Scheduled banks, NBFCs and fintechs. Detection and response, fraud models, core-adjacent integration and RBI framework compliance.',
     points: ['RBI cyber-security framework mapping', 'Fraud and credit-risk modelling', 'CERT-In empanelled audit reports'],
   },
   {
     icon: 'shield',
     name: 'Insurance',
+    image: 'img/industries/insurance.jpg',
     body: 'Claims automation, document understanding, fraud triage and the governance paperwork that lets an automated decision stand up to scrutiny.',
     points: ['Claims document extraction at volume', 'Explainable triage with reason codes', 'IRDAI-aligned audit trails'],
   },
   {
     icon: 'factory',
     name: 'Manufacturing & energy',
+    image: 'img/industries/manufacturing-energy.jpg',
     body: 'Edge computer vision, OT network segmentation, predictive maintenance and the plant-floor realities of intermittent connectivity.',
     points: ['On-site inference where uplink is unreliable', 'IEC 62443-informed OT segmentation', 'Condition monitoring and maintenance models'],
   },
   {
     icon: 'truck',
     name: 'Logistics & mobility',
+    image: 'img/industries/logistics-mobility.jpg',
     body: 'Telemetry platforms, routing and arrival prediction, control-room tooling and the reconciliation that keeps billing honest.',
     points: ['Streaming telemetry at fleet scale', 'Quantile ETA models with stated uncertainty', 'Exception-first operations consoles'],
   },
   {
     icon: 'health',
     name: 'Healthcare & diagnostics',
+    image: 'img/industries/healthcare-diagnostics.jpg',
     body: 'Clinical system integration, consent-gated record access, DPDP readiness and segmentation across distributed collection networks.',
     points: ['DPDP Act 2023 gap work and subject requests', 'Consent-gated access with full audit trail', 'Legacy analyser isolation and monitoring'],
   },
@@ -156,21 +166,25 @@ export const testimonials = [
     text: 'They refused to quote until they had measured our system for three weeks. That told us more about how they work than the proposal did.',
     author: 'Head of Technology',
     company: 'Vertex Broking',
+    project: 'velocity-oms',
   },
   {
     text: 'The difference is that we now know what we would miss. That list is short, written down and shrinking every quarter.',
     author: 'Chief Information Security Officer',
     company: 'Karnavati Bank',
+    project: 'sentinel-soc',
   },
   {
     text: 'They spent the first month arguing with us about how to measure success. In hindsight that month is why the thing works.',
     author: 'Head of Claims',
     company: 'Sahaj Finserv',
+    project: 'claimsight-ai',
   },
   {
     text: 'Our backtests got worse and our returns got better. That is exactly the trade we wanted.',
     author: 'Chief Investment Officer',
     company: 'Aurelia Capital',
+    project: 'aurelia-quant-desk',
   },
 ];
 

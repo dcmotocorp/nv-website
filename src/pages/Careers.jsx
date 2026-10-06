@@ -61,7 +61,9 @@ export default function Careers() {
       {/* ---------- why here ------------------------------------------ */}
       <section className="section">
         <div className="shell">
-          <div className="split">
+          {/* Copy beside a picture, with the perks on a full-width grid below.
+              Stacking six perk cards in one column left the other side empty. */}
+          <div className="split split--center">
             <div className="stack" style={{ gap: 22 }}>
               <Pill>Why here</Pill>
               <h2 className="h2">A consultancy that behaves like a product company.</h2>
@@ -80,14 +82,18 @@ export default function Careers() {
                 ]}
               />
             </div>
-            <div className="grid" style={{ gap: 14 }}>
-              {perks.map((p) => (
-                <article key={p.title} className="card stack" style={{ gap: 7, padding: 22 }}>
-                  <span style={{ fontSize: 15.5, fontWeight: 600 }}>{p.title}</span>
-                  <span className="small">{p.body}</span>
-                </article>
-              ))}
+            <div className="media-frame media-frame--tall">
+              <img src={asset('img/careers/why.jpg')} alt="The engineering floor in Mohali" loading="lazy" />
             </div>
+          </div>
+
+          <div className="grid grid--3" style={{ marginTop: 56 }}>
+            {perks.map((p) => (
+              <article key={p.title} className="card stack" style={{ gap: 7, padding: 24 }}>
+                <span style={{ fontSize: 15.5, fontWeight: 600 }}>{p.title}</span>
+                <span className="small">{p.body}</span>
+              </article>
+            ))}
           </div>
         </div>
       </section>

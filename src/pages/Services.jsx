@@ -45,7 +45,7 @@ const engagementModels = [
   },
 ];
 
-function ServiceRow({ service, index }) {
+function ServiceRow({ service }) {
   return (
     <Link to={`/services/${service.slug}`} className="svc-row">
       <span className="icon-tile svc-row__icon">
@@ -53,7 +53,6 @@ function ServiceRow({ service, index }) {
       </span>
 
       <span className="svc-row__head">
-        <span className="svc-row__num">{String(index + 1).padStart(2, '0')}</span>
         <span className="svc-row__name">{service.name}</span>
       </span>
 
@@ -103,16 +102,12 @@ export default function Services() {
       {/* ---------- the directory ------------------------------------- */}
       <section className="section--tight">
         <div className="shell">
-          <div
-            className="row"
-            style={{ justifyContent: 'space-between', gap: 16, marginBottom: 20 }}
-          >
-            <span className="eyebrow">All practices</span>
-            <span className="mono">{services.length} practices</span>
-          </div>
+          <span className="eyebrow" style={{ display: 'block', marginBottom: 20 }}>
+            All practices
+          </span>
           <div className="svc-index">
-            {services.map((s, i) => (
-              <ServiceRow key={s.slug} service={s} index={i} />
+            {services.map((s) => (
+              <ServiceRow key={s.slug} service={s} />
             ))}
           </div>
           <p className="small" style={{ marginTop: 22 }}>

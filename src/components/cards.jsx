@@ -178,9 +178,36 @@ export function InsightCard({ article, compact = false }) {
 export function IndustryCard({ industry }) {
   return (
     <article className="card stack" style={{ gap: 18 }}>
-      <span className="icon-tile icon-tile--lg">
-        <Icon name={industry.icon} size={23} />
-      </span>
+      {industry.image && (
+        <div
+          style={{
+            height: 150,
+            margin: '-28px -28px 2px',
+            borderBottom: '1px solid var(--line)',
+            overflow: 'hidden',
+            background: 'var(--cream-sunk)',
+            position: 'relative',
+          }}
+        >
+          <img
+            src={asset(industry.image)}
+            alt=""
+            loading="lazy"
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+          <span
+            className="icon-tile"
+            style={{ position: 'absolute', left: 20, bottom: 14, background: 'var(--surface)' }}
+          >
+            <Icon name={industry.icon} size={20} />
+          </span>
+        </div>
+      )}
+      {!industry.image && (
+        <span className="icon-tile icon-tile--lg">
+          <Icon name={industry.icon} size={23} />
+        </span>
+      )}
       <div className="stack" style={{ gap: 8 }}>
         <h3 className="h4">{industry.name}</h3>
         <p className="small">{industry.body}</p>

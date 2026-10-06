@@ -178,9 +178,23 @@ export function TagRow({ items, label }) {
 }
 
 /* ---------- Quote ----------------------------------------------------- */
-export function QuoteCard({ text, author, company }) {
+// The caption is pushed to the bottom so a row of quotes of differing length
+// still lines up. Where the quote came out of a published case study, its
+// picture doubles as the attribution thumbnail.
+export function QuoteCard({ text, author, company, project }) {
+  // With a published case study behind it, the whole card is the link —
+  // an inline "case study" link crowded the attribution line.
+  const Wrapper = project ? Link : 'figure';
+  const wrapperProps = project
+    ? {
+        to: `/projects/${project}`,
+        className: 'card card--raised card--link stack',
+        'aria-label': `${company} — read the case study`,
+      }
+    : { className: 'card card--raised stack' };
+
   return (
-    <figure className="card card--raised stack" style={{ gap: 20, margin: 0 }}>
+    <Wrapper {...wrapperProps} style={{ gap: 20, margin: 0 }}>
       <Icon name="speak" size={22} style={{ color: 'var(--clay)' }} />
       <blockquote
         style={{
@@ -193,11 +207,45 @@ export function QuoteCard({ text, author, company }) {
       >
         “{text}”
       </blockquote>
-      <figcaption className="stack" style={{ gap: 2 }}>
-        <span style={{ fontSize: 14, fontWeight: 600 }}>{author}</span>
-        {company && <span style={{ fontSize: 13, color: 'var(--ink-4)' }}>{company}</span>}
-      </figcaption>
-    </figure>
+      <div
+        className="row"
+        style={{
+          gap: 12,
+          marginTop: 'auto',
+          paddingTop: 18,
+          borderTop: '1px solid var(--line)',
+          flexWrap: 'nowrap',
+        }}
+      >
+        {project && (
+          <img
+            src={`${import.meta.env.BASE_URL}img/projects/${project}.jpg`}
+            alt=""
+            loading="lazy"
+            style={{
+              flex: 'none',
+              width: 44,
+              height: 44,
+              borderRadius: 10,
+              objectFit: 'cover',
+              border: '1px solid var(--line)',
+            }}
+          />
+        )}
+        <span className="stack" style={{ gap: 2, minWidth: 0 }}>
+          <span style={{ fontSize: 14, fontWeight: 600, lineHeight: 1.3 }}>{author}</span>
+          {company && <span style={{ fontSize: 13, color: 'var(--ink-4)' }}>{company}</span>}
+        </span>
+        {project && (
+          <Icon
+            name="arrowRight"
+            size={16}
+            strokeWidth={2}
+            style={{ marginLeft: 'auto', color: 'var(--ink-5)' }}
+          />
+        )}
+      </div>
+    </Wrapper>
   );
 }
 

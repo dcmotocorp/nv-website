@@ -110,12 +110,32 @@ export default function About() {
             title="4 principles we are willing to be judged on."
             lede="Every firm publishes values. These are the four that have actually changed a decision we made."
           />
-          <div className="grid grid--2">
+          <div className="grid grid--2up">
             {values.map((v) => (
               <article key={v.title} className="card stack" style={{ gap: 16 }}>
-                <span className="icon-tile icon-tile--lg">
-                  <Icon name={v.icon} size={23} />
-                </span>
+                <div
+                  style={{
+                    height: 168,
+                    margin: '-28px -28px 4px',
+                    borderBottom: '1px solid var(--line)',
+                    overflow: 'hidden',
+                    background: 'var(--cream-sunk)',
+                    position: 'relative',
+                  }}
+                >
+                  <img
+                    src={asset(v.image)}
+                    alt=""
+                    loading="lazy"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                  <span
+                    className="icon-tile"
+                    style={{ position: 'absolute', left: 20, bottom: 14, background: 'var(--surface)' }}
+                  >
+                    <Icon name={v.icon} size={20} />
+                  </span>
+                </div>
                 <h3 className="h4">{v.title}</h3>
                 <p className="small">{v.body}</p>
               </article>
