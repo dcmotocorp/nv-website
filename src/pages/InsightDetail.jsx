@@ -5,6 +5,8 @@ import { InsightCard } from '../components/cards';
 import { insights, insightBySlug, formatDate } from '../data/insights';
 import NotFound from './NotFound';
 
+const asset = (p) => `${import.meta.env.BASE_URL}${p}`;
+
 export default function InsightDetail() {
   const { slug } = useParams();
   const article = insightBySlug(slug);
@@ -22,14 +24,11 @@ export default function InsightDetail() {
   return (
     <>
       {/* ---------- hero ---------------------------------------------- */}
-      <section
-        style={{
-          borderBottom: '1px solid var(--line)',
-          background:
-            'radial-gradient(900px 380px at 15% -15%, rgba(201,100,66,0.07), transparent 70%), var(--cream)',
-        }}
-      >
-        <div className="shell" style={{ paddingTop: 36, paddingBottom: 64 }}>
+      <section className="banner">
+        <div className="banner__media">
+          <img src={asset(`img/insights/${article.slug}.jpg`)} alt="" fetchpriority="high" />
+        </div>
+        <div className="shell" style={{ paddingTop: 36, paddingBottom: 72 }}>
           <Breadcrumb
             trail={[
               { label: 'Home', to: '/' },
@@ -47,18 +46,18 @@ export default function InsightDetail() {
             </p>
             <div
               className="row"
-              style={{ gap: 14, marginTop: 10, paddingTop: 22, borderTop: '1px solid var(--line)' }}
+              style={{ gap: 14, marginTop: 10, paddingTop: 22, borderTop: '1px solid rgba(247,244,239,0.18)' }}
             >
               <Avatar initials={initials} size={42} />
               <div className="stack" style={{ gap: 2 }}>
                 <span style={{ fontSize: 15, fontWeight: 600 }}>{article.author}</span>
-                <span style={{ fontSize: 13, color: 'var(--ink-4)' }}>{article.role}</span>
+                <span style={{ fontSize: 13, color: 'var(--on-dark-3)' }}>{article.role}</span>
               </div>
               <div
                 className="stack"
                 style={{ gap: 2, marginLeft: 'auto', textAlign: 'right' }}
               >
-                <span style={{ fontSize: 13, color: 'var(--ink-3)' }}>{formatDate(article.date)}</span>
+                <span style={{ fontSize: 13, color: 'var(--on-dark-2)' }}>{formatDate(article.date)}</span>
                 <span className="mono">{article.readingTime}</span>
               </div>
             </div>

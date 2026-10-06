@@ -1,15 +1,12 @@
 /* Services directory — every practice visible at once, with its capabilities
    listed underneath so the page reads like an index rather than a brochure. */
 
-.svc-intro {
-  border-bottom: 1px solid var(--line);
-  background:
-    radial-gradient(900px 340px at 10% -20%, rgba(201, 100, 66, 0.07), transparent 70%),
-    var(--cream);
-}
-.svc-intro__inner {
-  padding-top: 52px;
-  padding-bottom: 44px;
+/* The band itself is styled by .banner; this only controls its spacing.
+   Two classes are needed because .shell sets `padding` as a shorthand, which
+   would otherwise reset the vertical padding back to zero. */
+.svc-intro .svc-intro__inner {
+  padding-top: 72px;
+  padding-bottom: 72px;
   display: flex;
   gap: 40px;
   align-items: flex-end;

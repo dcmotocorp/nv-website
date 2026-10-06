@@ -13,6 +13,8 @@ import { services, serviceBySlug } from '../data/services';
 import { projects } from '../data/projects';
 import NotFound from './NotFound';
 
+const asset = (p) => `${import.meta.env.BASE_URL}${p}`;
+
 export default function ServiceDetail() {
   const { slug } = useParams();
   const service = serviceBySlug(slug);
@@ -25,14 +27,11 @@ export default function ServiceDetail() {
   return (
     <>
       {/* ---------- hero ---------------------------------------------- */}
-      <section
-        style={{
-          borderBottom: '1px solid var(--line)',
-          background:
-            'radial-gradient(1000px 420px at 10% -12%, rgba(201,100,66,0.08), transparent 70%), var(--cream)',
-        }}
-      >
-        <div className="shell" style={{ paddingTop: 36, paddingBottom: 72 }}>
+      <section className="banner">
+        <div className="banner__media">
+          <img src={asset('img/banner/page.jpg')} alt="" fetchpriority="high" />
+        </div>
+        <div className="shell" style={{ paddingTop: 36, paddingBottom: 80 }}>
           <Breadcrumb
             trail={[
               { label: 'Home', to: '/' },

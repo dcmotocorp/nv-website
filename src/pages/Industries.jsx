@@ -5,6 +5,8 @@ import { IndustryCard, ProjectCard } from '../components/cards';
 import { industries } from '../data/company';
 import { projects } from '../data/projects';
 
+const asset = (p) => `${import.meta.env.BASE_URL}${p}`;
+
 const regulations = [
   {
     body: 'SEBI',
@@ -32,6 +34,8 @@ export default function Industries() {
   return (
     <>
       <PageHero
+        image={asset('img/banner/page.jpg')}
+        imageAlt=""
         eyebrow="Industries"
         title="We work best where mistakes are named in a statute."
         lede="Six sectors where downtime is measured, data is regulated and somebody has to sign the audit. The constraints are what make the engineering interesting."

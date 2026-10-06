@@ -8,25 +8,25 @@ import {
   QuoteCard,
   CheckList,
 } from '../components/ui';
+import Carousel from '../components/Carousel';
 import { ServiceCard, ProjectCard, InsightCard } from '../components/cards';
 import { site, stats, clients } from '../data/site';
 import { services } from '../data/services';
-import { projects, featuredProjects } from '../data/projects';
-import { featuredInsights } from '../data/insights';
+import { projects } from '../data/projects';
+import { insights } from '../data/insights';
 import { process, testimonials, industries } from '../data/company';
+
+const asset = (p) => `${import.meta.env.BASE_URL}${p}`;
 
 export default function Home() {
   return (
     <>
       {/* ---------- hero ---------------------------------------------- */}
-      <section
-        style={{
-          borderBottom: '1px solid var(--line)',
-          background:
-            'radial-gradient(1200px 520px at 8% -15%, rgba(201,100,66,0.09), transparent 68%), radial-gradient(900px 400px at 95% 0%, rgba(90,120,140,0.07), transparent 70%), var(--cream)',
-        }}
-      >
-        <div className="shell" style={{ paddingTop: 84, paddingBottom: 84 }}>
+      <section className="banner">
+        <div className="banner__media">
+          <img src={asset('img/banner/home.jpg')} alt="" fetchpriority="high" />
+        </div>
+        <div className="shell" style={{ paddingTop: 96, paddingBottom: 96 }}>
           <div className="split split--center">
             <div className="stack" style={{ gap: 26 }}>
               <Pill>Est. {site.founded} · Mohali · Mumbai · Dubai</Pill>
@@ -60,7 +60,12 @@ export default function Home() {
             {/* practice summary card */}
             <aside
               className="card card--raised stack"
-              style={{ gap: 0, padding: 0, overflow: 'hidden' }}
+              style={{
+                gap: 0,
+                padding: 0,
+                overflow: 'hidden',
+                boxShadow: '0 24px 70px -28px rgba(0,0,0,0.65)',
+              }}
             >
               <div
                 className="stack"
@@ -173,27 +178,17 @@ export default function Home() {
       {/* ---------- featured work ------------------------------------- */}
       <section className="section">
         <div className="shell">
-          <SectionHead
+          <Carousel
             eyebrow="Selected work"
             title="Systems in production, with the numbers attached."
-            lede="Each of these is running today. The figures are the ones we report to the client, not the ones that look best on a slide."
-            action={
-              <Link to="/projects" className="btn btn--ghost btn--sm">
-                All case studies
-                <Icon name="arrowRight" size={15} strokeWidth={2} />
-              </Link>
-            }
-          />
-          <div className="grid grid--3">
-            {featuredProjects.map((p) => (
+            lede="Each of these is running today. Scroll through the lot, or open any one for the constraint we hit and the approach we took."
+            seeAll={{ to: '/projects', label: 'All case studies' }}
+            ariaLabel="Case studies"
+          >
+            {projects.map((p) => (
               <ProjectCard key={p.slug} project={p} />
             ))}
-          </div>
-          <div className="grid grid--3" style={{ marginTop: 24 }}>
-            {projects.filter((p) => !p.featured).slice(0, 3).map((p) => (
-              <ProjectCard key={p.slug} project={p} />
-            ))}
-          </div>
+          </Carousel>
         </div>
       </section>
 
@@ -305,22 +300,18 @@ export default function Home() {
       {/* ---------- insights ------------------------------------------ */}
       <section className="section">
         <div className="shell">
-          <SectionHead
+          <Carousel
             eyebrow="Insights"
             title="What we have learned, written down."
             lede="Notes from engagements — latency audits, detection coverage, and why most AI projects stall before deployment."
-            action={
-              <Link to="/insights" className="btn btn--ghost btn--sm">
-                All insights
-                <Icon name="arrowRight" size={15} strokeWidth={2} />
-              </Link>
-            }
-          />
-          <div className="grid grid--3">
-            {featuredInsights.map((a) => (
+            seeAll={{ to: '/insights', label: 'All insights' }}
+            interval={6000}
+            ariaLabel="Insight articles"
+          >
+            {insights.map((a) => (
               <InsightCard key={a.slug} article={a} />
             ))}
-          </div>
+          </Carousel>
         </div>
       </section>
 

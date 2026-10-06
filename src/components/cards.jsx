@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
 import Icon from './Icon';
+import AnimatedNumber from './AnimatedNumber';
 import { formatDate } from '../data/insights';
+
+const asset = (p) => `${import.meta.env.BASE_URL}${p}`;
 
 /* ---------- Service card ---------------------------------------------- */
 export function ServiceCard({ service }) {
@@ -34,25 +37,46 @@ export function ProjectCard({ project, size = 'default' }) {
       style={{ gap: 20, padding: large ? 32 : 26, overflow: 'hidden' }}
     >
       <div
-        aria-hidden="true"
         style={{
-          height: large ? 132 : 104,
+          height: large ? 196 : 168,
           margin: large ? '-32px -32px 0' : '-26px -26px 0',
           borderBottom: '1px solid var(--line)',
-          background: `linear-gradient(135deg, ${project.accent}1F 0%, ${project.accent}08 55%, transparent 100%), var(--cream)`,
           position: 'relative',
           display: 'flex',
           alignItems: 'flex-end',
           padding: large ? 32 : 26,
+          overflow: 'hidden',
+          background: 'var(--cream-sunk)',
         }}
       >
+        <img
+          src={asset(`img/projects/${project.slug}.jpg`)}
+          alt=""
+          loading="lazy"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+          }}
+        />
+        <span
+          aria-hidden="true"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: `linear-gradient(to top, rgba(23,21,19,0.88) 0%, rgba(23,21,19,0.42) 48%, ${project.accent}26 100%)`,
+          }}
+        />
         <span
           style={{
+            position: 'relative',
             fontFamily: 'var(--mono)',
             fontSize: 11.5,
             letterSpacing: '0.1em',
             textTransform: 'uppercase',
-            color: project.accent,
+            color: 'rgba(247,244,239,0.92)',
             fontWeight: 500,
           }}
         >
@@ -69,7 +93,8 @@ export function ProjectCard({ project, size = 'default' }) {
       <div className="row" style={{ gap: '10px 24px', marginTop: 'auto', paddingTop: 4 }}>
         {project.metrics.slice(0, large ? 3 : 2).map((m) => (
           <span key={m.label} className="stack" style={{ gap: 1 }}>
-            <span
+            <AnimatedNumber
+              value={m.value}
               style={{
                 fontFamily: 'var(--serif)',
                 fontSize: 20,
@@ -77,9 +102,7 @@ export function ProjectCard({ project, size = 'default' }) {
                 lineHeight: 1.1,
                 color: 'var(--ink)',
               }}
-            >
-              {m.value}
-            </span>
+            />
             <span style={{ fontSize: 11.5, color: 'var(--ink-4)' }}>{m.label}</span>
           </span>
         ))}
@@ -92,6 +115,24 @@ export function ProjectCard({ project, size = 'default' }) {
 export function InsightCard({ article, compact = false }) {
   return (
     <Link to={`/insights/${article.slug}`} className="card card--link stack" style={{ gap: 14 }}>
+      {!compact && (
+        <div
+          style={{
+            height: 150,
+            margin: '-28px -28px 2px',
+            borderBottom: '1px solid var(--line)',
+            overflow: 'hidden',
+            background: 'var(--cream-sunk)',
+          }}
+        >
+          <img
+            src={asset(`img/insights/${article.slug}.jpg`)}
+            alt=""
+            loading="lazy"
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+        </div>
+      )}
       <div className="row" style={{ gap: 10, justifyContent: 'space-between' }}>
         <span className="tag" style={{ background: 'var(--cream)' }}>
           {article.topic}

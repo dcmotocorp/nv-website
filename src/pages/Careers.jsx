@@ -4,6 +4,8 @@ import { PageHero, SectionHead, CtaBand, Pill, CheckList, StatStrip } from '../c
 import { openings, perks } from '../data/company';
 import { site } from '../data/site';
 
+const asset = (p) => `${import.meta.env.BASE_URL}${p}`;
+
 const hiringSteps = [
   { step: '01', title: 'A conversation, not a screen', body: 'Thirty minutes with the practice lead you would work for. You will hear what the role actually involves, including the parts that are tedious.' },
   { step: '02', title: 'A technical session', body: 'A problem close to our real work, discussed together. No whiteboard algorithms and no take-home longer than three hours — if we ask for one, we pay for it.' },
@@ -22,6 +24,8 @@ export default function Careers() {
   return (
     <>
       <PageHero
+        image={asset('img/banner/careers.jpg')}
+        imageAlt="Engineers working together"
         eyebrow="Careers"
         title="Hard problems, honest hours, published bands."
         lede="We hire people who want to work on systems where correctness is measurable. In exchange: paid on-call, a published promotion ladder, and managers who were engineers recently enough to remember."

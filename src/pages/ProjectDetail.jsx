@@ -2,9 +2,12 @@ import { Link, useParams } from 'react-router-dom';
 import Icon from '../components/Icon';
 import { Pill, Breadcrumb, CtaBand, CheckList, TagRow } from '../components/ui';
 import { ProjectCard } from '../components/cards';
+import AnimatedNumber from '../components/AnimatedNumber';
 import { projects, projectBySlug } from '../data/projects';
 import { serviceBySlug } from '../data/services';
 import NotFound from './NotFound';
+
+const asset = (p) => `${import.meta.env.BASE_URL}${p}`;
 
 export default function ProjectDetail() {
   const { slug } = useParams();
@@ -18,13 +21,11 @@ export default function ProjectDetail() {
   return (
     <>
       {/* ---------- hero ---------------------------------------------- */}
-      <section
-        style={{
-          borderBottom: '1px solid var(--line)',
-          background: `linear-gradient(160deg, ${project.accent}14 0%, ${project.accent}05 45%, transparent 100%), var(--cream)`,
-        }}
-      >
-        <div className="shell" style={{ paddingTop: 36, paddingBottom: 72 }}>
+      <section className="banner">
+        <div className="banner__media">
+          <img src={asset(`img/projects/${project.slug}.jpg`)} alt="" fetchpriority="high" />
+        </div>
+        <div className="shell" style={{ paddingTop: 36, paddingBottom: 80 }}>
           <Breadcrumb
             trail={[
               { label: 'Home', to: '/' },
@@ -47,7 +48,7 @@ export default function ProjectDetail() {
 
           <dl
             className="grid grid--4"
-            style={{ marginTop: 52, paddingTop: 32, borderTop: '1px solid var(--line)' }}
+            style={{ marginTop: 52, paddingTop: 32, borderTop: '1px solid rgba(247,244,239,0.18)' }}
           >
             {[
               { k: 'Client', v: project.client },
@@ -72,7 +73,8 @@ export default function ProjectDetail() {
           <div className="grid grid--3">
             {project.metrics.map((m) => (
               <div key={m.label} className="stack" style={{ gap: 6 }}>
-                <span
+                <AnimatedNumber
+                  value={m.value}
                   style={{
                     fontFamily: 'var(--serif)',
                     fontSize: 'clamp(32px, 3.8vw, 42px)',
@@ -81,9 +83,7 @@ export default function ProjectDetail() {
                     lineHeight: 1,
                     color: project.accent,
                   }}
-                >
-                  {m.value}
-                </span>
+                />
                 <span style={{ fontSize: 14.5, fontWeight: 600 }}>{m.label}</span>
               </div>
             ))}

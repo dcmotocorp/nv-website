@@ -3,6 +3,8 @@ import { PageHero, CtaBand, StatStrip } from '../components/ui';
 import { ProjectCard } from '../components/cards';
 import { projects, projectCategories } from '../data/projects';
 
+const asset = (p) => `${import.meta.env.BASE_URL}${p}`;
+
 const summary = [
   { value: '40+', label: 'Estates under management', note: 'Trading, SOC and platform' },
   { value: '14', label: 'Case studies published', note: 'Of 60-plus engagements' },
@@ -21,6 +23,8 @@ export default function Projects() {
   return (
     <>
       <PageHero
+        image={asset('img/banner/page.jpg')}
+        imageAlt=""
         eyebrow="Case studies"
         title="Work that is running in production right now."
         lede="Fourteen engagements described in enough detail to be useful — the constraint we hit, the approach we took and what we delivered. Client names appear only where we have permission to use them."

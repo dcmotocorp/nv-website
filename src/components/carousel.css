@@ -1,0 +1,80 @@
+.carousel { display: block; }
+
+.carousel__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+.carousel__copy { display: flex; flex-direction: column; gap: 16px; max-width: 60ch; }
+
+.carousel__controls { display: flex; align-items: center; gap: 12px; }
+.carousel__arrows { display: flex; gap: 8px; }
+
+.carousel__arrow {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: background 140ms ease, border-color 140ms ease, color 140ms ease, opacity 140ms ease;
+}
+.carousel__arrow:hover:not(:disabled) {
+  background: var(--clay-tint);
+  border-color: var(--clay-line);
+  color: var(--clay-darker);
+}
+.carousel__arrow:disabled { opacity: 0.35; cursor: default; }
+
+/* The track is a real scroller, so touch swipe and keyboard scrolling work
+   even before the script attaches. */
+.carousel__track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(288px, calc((100% - 48px) / 3));
+  gap: 24px;
+  margin: 0;
+  padding: 4px 4px 8px;
+  list-style: none;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.carousel__track::-webkit-scrollbar { display: none; }
+
+.carousel__slide { scroll-snap-align: start; display: flex; }
+.carousel__slide > * { width: 100%; }
+
+.carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 22px;
+}
+.carousel__dot {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: var(--line-strong);
+  cursor: pointer;
+  transition: width 180ms ease, background 180ms ease;
+}
+.carousel__dot.is-active { width: 22px; background: var(--clay); }
+
+@media (max-width: 960px) {
+  .carousel__track { grid-auto-columns: minmax(280px, calc((100% - 24px) / 2)); }
+}
+@media (max-width: 680px) {
+  .carousel__track { grid-auto-columns: 86%; gap: 16px; }
+  .carousel__head { margin-bottom: 24px; }
+}

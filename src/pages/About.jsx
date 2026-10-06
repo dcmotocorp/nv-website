@@ -13,10 +13,14 @@ import {
 import { site, stats } from '../data/site';
 import { values, timeline, leadership, testimonials } from '../data/company';
 
+const asset = (p) => `${import.meta.env.BASE_URL}${p}`;
+
 export default function About() {
   return (
     <>
       <PageHero
+        image={asset('img/banner/about.jpg')}
+        imageAlt="NV Infotech engineering floor"
         eyebrow="About NV Infotech"
         title="An engineering firm, run by engineers."
         lede="We started in 2017 with four people and one brokerage client. Nine years later there are 140 of us across Mohali, Mumbai and Dubai, and the founder still reviews the architecture on every trading engagement."

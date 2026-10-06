@@ -31,11 +31,16 @@
 
   --shell: 1140px;
   --gutter: 32px;
+  --head-h: 76px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  /* keep anchored content clear of the sticky header */
+  scroll-padding-top: calc(var(--head-h) + 16px);
+}
 
 body {
   margin: 0;
@@ -298,3 +303,152 @@ input::placeholder, textarea::placeholder { color: var(--ink-5); }
 
 /* paired form fields — tighter minimum so they sit side by side inside a card */
 .grid--pair { grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr)); }
+
+/* ==========================================================================
+   Banners — a dark band so the top of every page reads differently from the
+   cream body, with a photo sitting behind the overlay.
+   ========================================================================== */
+:root {
+  --ink-deep:   #171513;
+  --clay-light: #E79B7B;
+  --on-dark:    #F7F4EF;
+  --on-dark-2:  rgba(247, 244, 239, 0.74);
+  --on-dark-3:  rgba(247, 244, 239, 0.56);
+}
+
+.banner {
+  position: relative;
+  isolation: isolate;
+  background: var(--ink-deep);
+  color: var(--on-dark);
+  overflow: hidden;
+}
+.banner__media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+.banner__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.34;
+}
+.banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(104deg, rgba(23, 21, 19, 0.95) 0%, rgba(23, 21, 19, 0.82) 46%, rgba(23, 21, 19, 0.55) 100%),
+    radial-gradient(900px 420px at 88% 8%, rgba(201, 100, 66, 0.42), transparent 72%);
+}
+
+.banner h1, .banner h2, .banner h3 { color: var(--on-dark); }
+.banner .lede, .banner .body, .banner .small { color: var(--on-dark-2); }
+.banner .eyebrow, .banner .mono { color: var(--on-dark-3); }
+.banner a:not(.btn) { color: var(--clay-light); }
+.banner a:not(.btn):hover { color: #F3B79D; }
+.banner .em-clay { color: var(--clay-light); }
+.banner hr.rule { background: rgba(247, 244, 239, 0.16); }
+
+.banner .pill {
+  background: rgba(201, 100, 66, 0.22);
+  color: var(--clay-light);
+  border: 1px solid rgba(231, 155, 123, 0.3);
+}
+.banner .pill__dot { background: var(--clay-light); }
+
+.banner .tag {
+  background: rgba(247, 244, 239, 0.08);
+  border-color: rgba(247, 244, 239, 0.18);
+  color: var(--on-dark-2);
+}
+
+/* Ghost buttons need to invert on the dark band. */
+.banner .btn--ghost {
+  background: rgba(247, 244, 239, 0.07);
+  border-color: rgba(247, 244, 239, 0.26);
+  color: var(--on-dark);
+}
+.banner .btn--ghost:hover {
+  background: rgba(247, 244, 239, 0.14);
+  border-color: rgba(247, 244, 239, 0.4);
+  color: var(--on-dark);
+}
+
+.banner__stat {
+  font-family: var(--serif);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--clay-light);
+}
+
+/* Media panel used beside banner copy. */
+.media-frame {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--cream-sunk);
+  aspect-ratio: 4 / 3;
+}
+.media-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.media-frame--wide { aspect-ratio: 16 / 9; }
+.media-frame--tall { aspect-ratio: 3 / 4; }
+
+/* ---------- breadcrumb (inverts inside a banner) ---------------------- */
+.breadcrumb { gap: 8px; font-size: 13px; color: var(--ink-4); }
+.breadcrumb a { color: var(--ink-3); }
+.breadcrumb a:hover { color: var(--clay); }
+
+.banner .breadcrumb { color: var(--on-dark-3); }
+.banner .breadcrumb a { color: var(--on-dark-2); }
+.banner .breadcrumb a:hover { color: var(--clay-light); }
+
+/* Metric figures sitting on a banner. */
+.banner dd { color: var(--on-dark); }
+
+/* A light card nested inside a dark banner must keep the light-surface
+   colours — otherwise the banner's inverted text rules make it unreadable. */
+.banner .card { color: var(--ink); }
+.banner .card h1,
+.banner .card h2,
+.banner .card h3,
+.banner .card h4 { color: var(--ink); }
+.banner .card .lede,
+.banner .card .body,
+.banner .card .small { color: var(--ink-3); }
+.banner .card .eyebrow,
+.banner .card .mono { color: var(--ink-4); }
+.banner .card a:not(.btn) { color: var(--clay); }
+.banner .card a:not(.btn):hover { color: var(--clay-darker); }
+.banner .card hr.rule { background: var(--line); }
+.banner .card dd { color: var(--ink); }
+.banner .card .pill {
+  background: var(--clay-tint);
+  color: var(--clay-darker);
+  border-color: transparent;
+}
+.banner .card .pill__dot { background: var(--clay); }
+.banner .card .tag {
+  background: var(--surface);
+  border-color: var(--line-strong);
+  color: var(--ink-3);
+}
+.banner .card .btn--ghost {
+  background: var(--surface);
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+.banner .card .btn--ghost:hover {
+  background: var(--cream-sunk);
+  border-color: var(--ink-5);
+  color: var(--ink);
+}

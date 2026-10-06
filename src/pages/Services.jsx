@@ -5,6 +5,8 @@ import { services } from '../data/services';
 import { process } from '../data/company';
 import './services.css';
 
+const asset = (p) => `${import.meta.env.BASE_URL}${p}`;
+
 const engagementModels = [
   {
     icon: 'target',
@@ -73,7 +75,10 @@ export default function Services() {
   return (
     <>
       {/* ---------- compact intro, so the list starts high ------------ */}
-      <section className="svc-intro">
+      <section className="svc-intro banner">
+        <div className="banner__media">
+          <img src={asset('img/banner/page.jpg')} alt="" fetchpriority="high" />
+        </div>
         <div className="shell svc-intro__inner">
           <div className="svc-intro__copy">
             <Pill>Services</Pill>

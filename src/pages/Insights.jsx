@@ -5,6 +5,8 @@ import { PageHero, CtaBand, Pill } from '../components/ui';
 import { InsightCard } from '../components/cards';
 import { insights, formatDate } from '../data/insights';
 
+const asset = (p) => `${import.meta.env.BASE_URL}${p}`;
+
 export default function Insights() {
   const topics = useMemo(() => ['All topics', ...new Set(insights.map((a) => a.topic))], []);
   const [topic, setTopic] = useState('All topics');
@@ -15,6 +17,8 @@ export default function Insights() {
   return (
     <>
       <PageHero
+        image={asset('img/banner/page.jpg')}
+        imageAlt=""
         eyebrow="Insights"
         title="Notes from engagements, not thought leadership."
         lede="Things we have learned on real systems — where the milliseconds actually go, why detection coverage is usually overstated, and the reason most AI projects stall before deployment."

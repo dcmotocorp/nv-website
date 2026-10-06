@@ -4,6 +4,8 @@ import { PageHero, Pill, CheckList } from '../components/ui';
 import { site } from '../data/site';
 import { services } from '../data/services';
 
+const asset = (p) => `${import.meta.env.BASE_URL}${p}`;
+
 const budgets = [
   'Not sure yet',
   'Under ₹25 lakh',
@@ -58,6 +60,8 @@ export default function Contact() {
   return (
     <>
       <PageHero
+        image={asset('img/banner/contact.jpg')}
+        imageAlt="NV Infotech office"
         eyebrow="Contact"
         title="Tell us what is not working."
         lede="You will get an engineer on the first call, not a qualification script. If we are the wrong firm for your problem we will say so and, where we can, point you at who is right."

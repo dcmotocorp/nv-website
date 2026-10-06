@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import Icon from './Icon';
+import AnimatedNumber from './AnimatedNumber';
 
 /* ---------- Pill ------------------------------------------------------ */
 export function Pill({ children, dot = true }) {
@@ -50,17 +51,18 @@ export function SectionHead({ eyebrow, title, lede, align = 'left', max = '58ch'
   );
 }
 
-/* ---------- Page hero ------------------------------------------------- */
-export function PageHero({ eyebrow, title, lede, children, aside }) {
+/* ---------- Page banner ----------------------------------------------- */
+// A dark band with a photo behind it, so the top of a page reads as a
+// distinct zone rather than as more cream.
+export function PageHero({ eyebrow, title, lede, children, aside, image, imageAlt = '' }) {
   return (
-    <section
-      style={{
-        borderBottom: '1px solid var(--line)',
-        background:
-          'radial-gradient(1100px 420px at 12% -10%, rgba(201,100,66,0.07), transparent 70%), var(--cream)',
-      }}
-    >
-      <div className="shell" style={{ paddingTop: 76, paddingBottom: 76 }}>
+    <section className="banner">
+      {image && (
+        <div className="banner__media">
+          <img src={image} alt={imageAlt} loading="eager" fetchpriority="high" />
+        </div>
+      )}
+      <div className="shell" style={{ paddingTop: 84, paddingBottom: 84 }}>
         <div className={aside ? 'split' : ''}>
           <div className="stack" style={{ gap: 22 }}>
             {eyebrow && <Pill>{eyebrow}</Pill>}
@@ -81,7 +83,8 @@ export function PageHero({ eyebrow, title, lede, children, aside }) {
 export function StatBlock({ value, label, note, accent }) {
   return (
     <div className="stack" style={{ gap: 6 }}>
-      <span
+      <AnimatedNumber
+        value={value}
         style={{
           fontFamily: 'var(--serif)',
           fontSize: 'clamp(30px, 3.4vw, 38px)',
@@ -90,9 +93,7 @@ export function StatBlock({ value, label, note, accent }) {
           lineHeight: 1,
           color: accent || 'var(--clay)',
         }}
-      >
-        {value}
-      </span>
+      />
       <span style={{ fontSize: 14.5, fontWeight: 600, lineHeight: 1.4 }}>{label}</span>
       {note && <span style={{ fontSize: 12.5, color: 'var(--ink-4)' }}>{note}</span>}
     </div>
@@ -251,18 +252,13 @@ export function CtaBand({
 }
 
 /* ---------- Breadcrumb ------------------------------------------------- */
+// Colours come from CSS so the trail can invert inside a dark banner.
 export function Breadcrumb({ trail }) {
   return (
-    <nav aria-label="Breadcrumb" className="row" style={{ gap: 8, fontSize: 13, color: 'var(--ink-4)' }}>
+    <nav aria-label="Breadcrumb" className="breadcrumb row">
       {trail.map((item, i) => (
         <span key={item.label} className="row" style={{ gap: 8 }}>
-          {item.to ? (
-            <Link to={item.to} style={{ color: 'var(--ink-3)' }}>
-              {item.label}
-            </Link>
-          ) : (
-            <span aria-current="page">{item.label}</span>
-          )}
+          {item.to ? <Link to={item.to}>{item.label}</Link> : <span aria-current="page">{item.label}</span>}
           {i < trail.length - 1 && <span aria-hidden="true">/</span>}
         </span>
       ))}
