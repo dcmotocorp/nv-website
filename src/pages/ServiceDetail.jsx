@@ -9,6 +9,7 @@ import {
   SectionHead,
 } from '../components/ui';
 import { ProjectCard } from '../components/cards';
+import Carousel from '../components/Carousel';
 import { services, serviceBySlug } from '../data/services';
 import { projects } from '../data/projects';
 import NotFound from './NotFound';
@@ -21,7 +22,7 @@ export default function ServiceDetail() {
 
   if (!service) return <NotFound />;
 
-  const related = projects.filter((p) => p.services?.includes(service.slug)).slice(0, 3);
+  const related = projects.filter((p) => p.services?.includes(service.slug));
   const others = services.filter((s) => s.slug !== service.slug);
 
   return (
@@ -132,21 +133,17 @@ export default function ServiceDetail() {
       {related.length > 0 && (
         <section className="section">
           <div className="shell">
-            <SectionHead
+            <Carousel
               eyebrow="Related work"
               title="Where this practice has been used."
-              action={
-                <Link to="/projects" className="btn btn--ghost btn--sm">
-                  All case studies
-                  <Icon name="arrowRight" size={15} strokeWidth={2} />
-                </Link>
-              }
-            />
-            <div className="grid grid--3">
+              seeAll={{ to: '/projects', label: 'See all 14 case studies' }}
+              interval={6000}
+              ariaLabel="Related case studies"
+            >
               {related.map((p) => (
                 <ProjectCard key={p.slug} project={p} />
               ))}
-            </div>
+            </Carousel>
           </div>
         </section>
       )}

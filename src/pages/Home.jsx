@@ -156,22 +156,18 @@ export default function Home() {
       {/* ---------- services ------------------------------------------ */}
       <section className="section section--line-top" style={{ background: 'var(--surface)' }}>
         <div className="shell">
-          <SectionHead
+          <Carousel
             eyebrow="What we do"
             title="9 practices that keep ending up on the same projects."
             lede="A trading platform needs a security programme. An AI model needs a data platform underneath it. We run these as one firm rather than 9, because that is how the problems actually arrive."
-            action={
-              <Link to="/services" className="btn btn--ghost btn--sm">
-                All services
-                <Icon name="arrowRight" size={15} strokeWidth={2} />
-              </Link>
-            }
-          />
-          <div className="grid grid--3">
+            seeAll={{ to: '/services', label: 'See all 9 practices' }}
+            interval={5200}
+            ariaLabel="Practices"
+          >
             {services.map((s) => (
               <ServiceCard key={s.slug} service={s} />
             ))}
-          </div>
+          </Carousel>
         </div>
       </section>
 
@@ -182,7 +178,7 @@ export default function Home() {
             eyebrow="Selected work"
             title="Systems in production, with the numbers attached."
             lede="Each of these is running today. Scroll through the lot, or open any one for the constraint we hit and the approach we took."
-            seeAll={{ to: '/projects', label: 'All case studies' }}
+            seeAll={{ to: '/projects', label: 'See all 14 case studies' }}
             ariaLabel="Case studies"
           >
             {projects.map((p) => (
@@ -249,18 +245,14 @@ export default function Home() {
       {/* ---------- industries ---------------------------------------- */}
       <section className="section">
         <div className="shell">
-          <SectionHead
+          <Carousel
             eyebrow="Industries"
             title="Regulated, measured, and unforgiving of downtime."
             lede="We work best where a mistake has a name for it in a statute. Those sectors reward the way we build."
-            action={
-              <Link to="/industries" className="btn btn--ghost btn--sm">
-                Industry detail
-                <Icon name="arrowRight" size={15} strokeWidth={2} />
-              </Link>
-            }
-          />
-          <div className="grid grid--3">
+            seeAll={{ to: '/industries', label: 'See all 6 industries' }}
+            interval={5600}
+            ariaLabel="Industries"
+          >
             {industries.map((ind) => (
               <Link
                 key={ind.name}
@@ -277,23 +269,24 @@ export default function Home() {
                 <p className="small">{ind.body}</p>
               </Link>
             ))}
-          </div>
+          </Carousel>
         </div>
       </section>
 
       {/* ---------- testimonials -------------------------------------- */}
       <section className="section section--line-top" style={{ background: 'var(--surface)' }}>
         <div className="shell">
-          <SectionHead
+          <Carousel
             eyebrow="In their words"
             title="What clients say when the project is over."
-            align="center"
-          />
-          <div className="grid grid--2">
-            {testimonials.slice(0, 4).map((t) => (
+            seeAll={{ to: '/projects', label: 'Read the case studies' }}
+            interval={7000}
+            ariaLabel="Client references"
+          >
+            {testimonials.map((t) => (
               <QuoteCard key={t.company} {...t} />
             ))}
-          </div>
+          </Carousel>
         </div>
       </section>
 
@@ -304,7 +297,7 @@ export default function Home() {
             eyebrow="Insights"
             title="What we have learned, written down."
             lede="Notes from engagements — latency audits, detection coverage, and why most AI projects stall before deployment."
-            seeAll={{ to: '/insights', label: 'All insights' }}
+            seeAll={{ to: '/insights', label: 'See all 6 articles' }}
             interval={6000}
             ariaLabel="Insight articles"
           >

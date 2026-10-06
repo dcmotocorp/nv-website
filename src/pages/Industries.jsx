@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import Icon from '../components/Icon';
 import { PageHero, SectionHead, CtaBand, Pill, CheckList } from '../components/ui';
 import { IndustryCard, ProjectCard } from '../components/cards';
+import Carousel from '../components/Carousel';
 import { industries } from '../data/company';
 import { projects } from '../data/projects';
 
@@ -119,22 +120,18 @@ export default function Industries() {
       {/* ---------- sector work --------------------------------------- */}
       <section className="section">
         <div className="shell">
-          <SectionHead
+          <Carousel
             eyebrow="Sector work"
             title="Engagements by industry."
-            lede="A sample across capital markets, banking, insurance, logistics, manufacturing and retail."
-            action={
-              <Link to="/projects" className="btn btn--ghost btn--sm">
-                All case studies
-                <Icon name="arrowRight" size={15} strokeWidth={2} />
-              </Link>
-            }
-          />
-          <div className="grid grid--3">
-            {projects.slice(0, 6).map((p) => (
+            lede="Across capital markets, banking, insurance, logistics, manufacturing and retail."
+            seeAll={{ to: '/projects', label: 'See all 14 case studies' }}
+            interval={6000}
+            ariaLabel="Case studies by sector"
+          >
+            {projects.map((p) => (
               <ProjectCard key={p.slug} project={p} />
             ))}
-          </div>
+          </Carousel>
         </div>
       </section>
 

@@ -114,25 +114,28 @@ export default function Carousel({
               <Icon name="arrowRight" size={15} strokeWidth={2} />
             </Link>
           )}
-          <div className="carousel__arrows">
-            <button
-              type="button"
-              className="carousel__arrow"
-              onClick={() => go(-1)}
-              disabled={atStart}
-              aria-label="Previous"
-            >
-              <Icon name="arrowLeft" size={17} strokeWidth={2} />
-            </button>
-            <button
-              type="button"
-              className="carousel__arrow"
-              onClick={() => go(1)}
-              aria-label={atEnd ? 'Back to start' : 'Next'}
-            >
-              <Icon name="arrowRight" size={17} strokeWidth={2} />
-            </button>
-          </div>
+          {/* A single slide has nowhere to go, so the arrows would be dead. */}
+          {items.length > 1 && (
+            <div className="carousel__arrows">
+              <button
+                type="button"
+                className="carousel__arrow"
+                onClick={() => go(-1)}
+                disabled={atStart}
+                aria-label="Previous"
+              >
+                <Icon name="arrowLeft" size={17} strokeWidth={2} />
+              </button>
+              <button
+                type="button"
+                className="carousel__arrow"
+                onClick={() => go(1)}
+                aria-label={atEnd ? 'Back to start' : 'Next'}
+              >
+                <Icon name="arrowRight" size={17} strokeWidth={2} />
+              </button>
+            </div>
+          )}
         </div>
       </div>
 

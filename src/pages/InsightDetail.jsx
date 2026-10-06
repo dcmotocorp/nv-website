@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import Icon from '../components/Icon';
 import { Breadcrumb, CtaBand, Prose, Avatar, Pill } from '../components/ui';
 import { InsightCard } from '../components/cards';
+import Carousel from '../components/Carousel';
 import { insights, insightBySlug, formatDate } from '../data/insights';
 import NotFound from './NotFound';
 
@@ -13,7 +14,7 @@ export default function InsightDetail() {
 
   if (!article) return <NotFound />;
 
-  const more = insights.filter((a) => a.slug !== article.slug).slice(0, 3);
+  const more = insights.filter((a) => a.slug !== article.slug);
   const initials = article.author
     .split(' ')
     .filter((w) => w[0] === w[0].toUpperCase() && w.length > 1)
@@ -126,19 +127,18 @@ export default function InsightDetail() {
 
       {/* ---------- more ---------------------------------------------- */}
       <section className="section section--line-top" style={{ background: 'var(--surface)' }}>
-        <div className="shell stack" style={{ gap: 36 }}>
-          <div className="row" style={{ justifyContent: 'space-between', gap: 20, alignItems: 'flex-end' }}>
-            <h2 className="h2">Keep reading</h2>
-            <Link to="/insights" className="btn btn--ghost btn--sm">
-              All insights
-              <Icon name="arrowRight" size={15} strokeWidth={2} />
-            </Link>
-          </div>
-          <div className="grid grid--3">
+        <div className="shell">
+          <Carousel
+            eyebrow="Keep reading"
+            title="More notes from engagements."
+            seeAll={{ to: '/insights', label: 'See all 6 articles' }}
+            interval={6500}
+            ariaLabel="More articles"
+          >
             {more.map((a) => (
               <InsightCard key={a.slug} article={a} />
             ))}
-          </div>
+          </Carousel>
         </div>
       </section>
 

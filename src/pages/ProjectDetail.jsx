@@ -3,6 +3,7 @@ import Icon from '../components/Icon';
 import { Pill, Breadcrumb, CtaBand, CheckList, TagRow } from '../components/ui';
 import { ProjectCard } from '../components/cards';
 import AnimatedNumber from '../components/AnimatedNumber';
+import Carousel from '../components/Carousel';
 import { projects, projectBySlug } from '../data/projects';
 import { serviceBySlug } from '../data/services';
 import NotFound from './NotFound';
@@ -15,7 +16,7 @@ export default function ProjectDetail() {
 
   if (!project) return <NotFound />;
 
-  const more = projects.filter((p) => p.slug !== project.slug).slice(0, 3);
+  const more = projects.filter((p) => p.slug !== project.slug);
   const linkedServices = (project.services || []).map(serviceBySlug).filter(Boolean);
 
   return (
@@ -195,22 +196,18 @@ export default function ProjectDetail() {
 
       {/* ---------- more work ----------------------------------------- */}
       <section className="section section--line-top" style={{ background: 'var(--surface)' }}>
-        <div className="shell stack" style={{ gap: 36 }}>
-          <div
-            className="row"
-            style={{ justifyContent: 'space-between', gap: 20, alignItems: 'flex-end' }}
+        <div className="shell">
+          <Carousel
+            eyebrow="More work"
+            title="Other systems we have built."
+            seeAll={{ to: '/projects', label: 'See all 14 case studies' }}
+            interval={6000}
+            ariaLabel="More case studies"
           >
-            <h2 className="h2">More of our work</h2>
-            <Link to="/projects" className="btn btn--ghost btn--sm">
-              All case studies
-              <Icon name="arrowRight" size={15} strokeWidth={2} />
-            </Link>
-          </div>
-          <div className="grid grid--3">
             {more.map((p) => (
               <ProjectCard key={p.slug} project={p} />
             ))}
-          </div>
+          </Carousel>
         </div>
       </section>
 
