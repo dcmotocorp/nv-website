@@ -84,9 +84,14 @@ export function ProjectCard({ project, size = 'default' }) {
         </span>
       </div>
 
-      <div className="stack" style={{ gap: 10 }}>
-        <span className="eyebrow">{project.client}</span>
-        <h3 className={large ? 'h3' : 'h4'}>{project.title}</h3>
+      <div className="stack" style={{ gap: 12 }}>
+        {/* Title leads; the client reads as a quiet byline beneath it. */}
+        <div className="stack" style={{ gap: 4 }}>
+          <h3 className={large ? 'h3' : 'h4'}>{project.title}</h3>
+          <span style={{ fontSize: 12.5, fontWeight: 500, color: 'var(--ink-4)' }}>
+            {project.client}
+          </span>
+        </div>
         <p className="small">{project.teaser}</p>
       </div>
 
